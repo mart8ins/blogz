@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&family=Syne+Mono&display=swap');
+
+/* font-family: 'Montserrat', sans-serif; // primary fontf for headings, links and so one
+font-family: 'Anonymous Pro', monospace;  // secondary font for text
+font-family: 'Syne Mono', monospace; // // font for brandings */
+
+body {
+    margin: 0;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a {
+    font-family: 'Montserrat', sans-serif;
+}

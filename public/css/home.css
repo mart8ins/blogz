@@ -1,0 +1,87 @@
+/* *******************
+ALL CONENT CONTAINER
+********************* */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* *******************
+MAX 5 TOP RATED BLOGS
+********************* */
+.top_rated_blogs_container {
+    margin-top: 5px;
+    border-top: 3px solid rgba(78, 75, 75, 0.377);
+    border-bottom: 3px solid rgba(78, 75, 75, 0.377);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* each top blog / link to */
+.top_rated_blogs_container a {
+    text-decoration: none;
+    color: black;
+}
+
+.top_rated_blogs_container a:hover {
+    transform: scale(1.05)
+}
+
+.top_rated_blogs_container .top_rated_blog {
+    width: 270px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.top_rated_blogs_container .top_rated_blog .category_rating_container {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0; */
+}
+
+.top_rated_blogs_container .top_rated_blog .category_rating_container p {
+    margin: 0;
+}
+
+.top_rated_blogs_container .top_rated_blog .rating {
+    text-align: right;
+    padding-right: 10px;
+    color: grey;
+    /* margin: 0; */
+}
+
+.top_rated_blogs_container .top_rated_blog .rating .checked {
+    color: rgb(221, 11, 11);
+}
+
+.top_rated_blogs_container .top_rated_blog h5 {
+    text-align: left;
+    margin: 10px 0px 0px;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.top_rated_blogs_container .top_rated_blog .top_blog_text {
+    font-size: 0.8rem;
+    text-align: justify;
+    padding: 5px;
+}
+
+
+/* *******************************
+MAIN PAGE FEED, BLOGS AND ACTIVITY 
+******************************** */
+.feed_container {
+    display: flex;
+}
+
+.main_blog_feed_left {
+    width: 60%;
+    padding: 20px;
+}

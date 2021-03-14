@@ -1,0 +1,52 @@
+header {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 5px 5px rgba(87, 20, 20, 0.5);
+}
+
+header a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+header a .title {
+    font-size: 2.2rem;
+    font-family: 'Syne Mono', monospace;
+    padding-left: 20px;
+
+}
+
+header nav .auth_nav {
+    display: flex;
+
+}
+
+.content_nav {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: rgba(87, 20, 20, 0.5);
+    box-shadow: 0px 2px 2px rgba(87, 20, 20, 0.5);
+    display: flex;
+}
+
+.content_nav a {
+    width: 25%;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.content_nav a:hover {
+    background-color: rgba(87, 20, 20, 0.7);
+}
