@@ -77,6 +77,8 @@ MAX 5 TOP RATED BLOGS
 /* *******************************
 MAIN PAGE FEED, BLOGS AND ACTIVITY 
 ******************************** */
+
+/* BLOG FEED  */
 .feed_container {
     display: flex;
 }
@@ -84,4 +86,100 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 .main_blog_feed_left {
     width: 60%;
     padding: 20px;
+}
+
+.main_blog_feed_left .blog_container {
+    box-shadow: 1px 2px 3px black;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.main_blog_feed_left .blog_container .blog_title {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.main_blog_feed_left .blog_container .blog_title h1 {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.main_blog_feed_left .blog_container .blog_title h1:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.main_blog_feed_left .blog_container .blog_title p {
+    padding: 10px;
+    font-size: 1.3rem;
+    box-shadow: 5px 2px 3px black;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(28, 28, 32, 0.7455357142857143) 90%, rgba(255, 0, 9, 0.6951155462184874) 94%, rgba(34, 33, 30, 1) 98%);
+    color: white;
+    font-weight: bold;
+}
+
+/* TEXT */
+.main_blog_feed_left .blog_container .blog_text {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 10px;
+    text-indent: 25px;
+    text-align: justify;
+    border-radius: 10px;
+}
+
+/*  BOTTOM OF BLOG, RATING/AUTHOR.... */
+.main_blog_feed_left .blog_container .blog_author_date_rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_blog_feed_left .blog_container .blog_author_date_rating .checked {
+    color: rgb(221, 11, 11);
+}
+
+/* ACTIVITY FEED / LAST COMENT */
+.page_activity_feed_right {
+    width: 34%;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(71, 71, 74, 0.486);
+}
+
+.page_activity_feed_right .last_comments_title {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.page_activity_feed_right .comment_feed {
+    background-color: rgba(87, 20, 20, 0.384);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.page_activity_feed_right .comment_feed .blog_of_comment {
+    margin: 10px;
+    color: white;
+}
+
+.page_activity_feed_right .comment_feed .blog_of_comment a {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 1.3rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.page_activity_feed_right .comment_feed .comment {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.page_activity_feed_right .comment_feed .comment .comment_text {
+    text-align: justify;
 }
