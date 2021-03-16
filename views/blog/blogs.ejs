@@ -1,0 +1,73 @@
+<% layout('layout/boilerplate') -%>
+<link rel="stylesheet" href="/css/blogs.css">
+
+<div class="container">
+    <div class="feed_container">
+        <div class="categorie_title">
+            <h2><%= categorie %></h2>
+        </div>
+
+        <div class="page_feed">
+
+            <!-- ****************************************************
+        section on left side, main blog feed - specific category feed 
+        ***************************************************** -->
+            <div class="left_side_blogs">
+                        <!-- ejs -->
+                    <div class="blog_container">
+                        <div class="blog_title">
+                            <a href="/blogs/1"><h1>Šodienas spēle bija psc!</h1></a>
+                        </div>
+                        <div class="blog_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.  Recusandae totam veritatis, harum officiis quaerat dicta commodi culpa obcaecati cupiditate aliquid, voluptatibus quis quam illo distinctio, nemo eos error similique quibusdam...........
+                        </div>
+                        <div class="blog_author_date_rating">
+                        <div class="author_date">
+                            <p>Author Martins</p>
+                            <p>14.03.2021</p>
+                        </div>
+                        <div class="rating_comments">
+                            <p>Komentāri: <span>5</span></p>
+                            <p class="rating">Novērtējums: 
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+        <!-- ejs -->
+            </div>
+
+             <!-- *******************************************************
+        section on right side, homepage activity, last added comments for specific category
+        ********************************************************* -->
+        <div class="right_side_activity">
+            <div class="comments_container">
+                <div class="last_comments_title">
+                    <p>Comment activity</p>
+                </div>
+                <!-- ejs -->
+                <div class="comment_feed">
+                    <div class="blog_of_comment">
+                        <p>Posted on</p> <a href="blogs/1">Šodienas spēle bija psc!...</a>
+                    </div>
+                    <div class="comment">
+                        <div class="comment_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minus quis neque quod. Expedita repellendus fugit? Eveniet voluptates ....
+                        </div>
+                        <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
+                    </div>
+                </div>
+                <!-- ejs -->
+            </div>
+        </div>
+  
+
+        </div>
+
+    </div>
+   
+</div>

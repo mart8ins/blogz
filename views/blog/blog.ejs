@@ -1,3 +1,90 @@
 <% layout('layout/boilerplate') -%>
+<link rel="stylesheet" href="/css/blog.css">
 
-<%= categorie %> 
+<div class="container">
+
+    <div class="top_container">
+        <!-- <div class="blog_title">
+            <h1>Šodienas spēle bija pscffsfdfssdsfzxccxczxzczsdfs!</h1>
+        </div> -->
+        <div class="rating_title_container">
+            <p class="rating">Novērtējums: 
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <div class="categorie_title">
+                <h2><%= categorie %></h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="blog_container">
+        <div class="blog_title">
+            <h1>Šodienas spēle bija psc!</h1>
+        </div>
+        <div class="blog_text">
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus expedita magni sapiente voluptatum nam impedit iste, nesciunt odio eaque aliquid temporibus hic molestias similique. Veritatis, illum! Rem libero at voluptates.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum maxime sed a. Tempora dolorem rerum quod doloribus omnis eius quae praesentium, nesciunt quibusdam neque facilis, magni fugiat autem voluptates aut.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam consectetur, in a natus earum sunt voluptate illum aperiam nesciunt quo fuga placeat, ducimus obcaecati voluptas. Harum veniam qui molestiae provident?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae maiores voluptatum adipisci quaerat veritatis dignissimos quos, perferendis tenetur eveniet. Labore maxime, error laborum excepturi aliquid voluptatem cumque! Maxime, enim id.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, iusto doloribus doloremque iure adipisci dolor esse sapiente fugiat totam aut quo, aperiam a molestias perferendis eos ducimus laudantium veritatis ipsa?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum officia iure itaque nobis provident quidem eum magni quasi asperiores, doloribus voluptate vitae necessitatibus similique ex rerum fugit nam et?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum explicabo dolores totam nam animi blanditiis omnis voluptatum! Explicabo, sed! Magnam vel culpa quam modi maxime suscipit, ducimus reiciendis deserunt dignissimos.
+            </p>
+        </div>
+        <div class="author_rate_blog">
+            <div class="blog_author">
+                <p>Autors: <span>mart8ins</span></p>
+                <p>Datums: <span>15.03.2021</span></p>
+                <p>Blogu skaits: <span>1</span></p>
+                <p>Lietotāja reitings: <span>5</span></p>
+            </div>
+            <div class="rate_blog">
+                <p>Novērtē šo ierakstu</p>
+                 <form action="/blogs/1" method="POST">
+                    <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                    </div>
+                    <button>Iesniegt</button>
+                 </form> 
+            </div>
+            
+        </div>
+    </div> 
+
+    <div class="bottom_container">
+       <div class="comments">
+        <div class="leave_comment">
+            <form action="/blogs/1" method="POST">
+            <label for="comment">Pievienot komentāru</label>
+            <input type="text" name="username" placeholder="Lietotāja vārds">
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <button>Komentēt</button>
+            </form>
+        </div>
+        <div class="see_comments">
+            <p>Visi komentāri</p>
+            <div class="all_comments">
+
+                <div class="comment">
+                    
+                </div>
+
+            </div>
+        </div>
+       </div>
+    </div>
+</div>

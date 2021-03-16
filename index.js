@@ -9,19 +9,22 @@ app.engine("ejs", engineMate); // use ejs-locals for all ejs templates
 app.set("views",__dirname + "/views");
 
 
-let categorie = "";
 
-app.get("/", (req, res)=> {
-    res.render("home")
-})
 
-app.get("/blog", (req, res)=> {
-    res.render("blog/blog", {categorie})
-})
+/* *********
+ROUTES IMPORTS 
+************* */
+const blogRoutes = require("./routes/blogs");
+const homeRoute = require("./routes/home");
 
-app.post("/blog", (req, res)=> {
-categorie = req.body.categorie;
-    res.redirect("/blog");
+/* *********
+ROUTES USE
+************* */
+app.use("/", homeRoute);
+app.use("/", blogRoutes);
+
+app.get("*", (req, res)=> {
+    res.send("UPS, 404")
 })
 
 app.listen(3000, ()=> {

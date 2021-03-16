@@ -27,6 +27,7 @@ header nav .auth_nav {
 
 }
 
+/* NAV LINKS - BUTTONS */
 .content_nav {
     width: 80%;
     margin: 0 auto;
@@ -36,7 +37,31 @@ header nav .auth_nav {
     display: flex;
 }
 
-.content_nav a {
+.content_nav .blog_categories_form {
+    width: 20%;
+    text-align: center;
+}
+
+.content_nav .blog_categories_form button {
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    text-transform: uppercase;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content_nav form button:hover {
+    background-color: rgba(87, 20, 20, 0.7);
+    cursor: pointer;
+}
+
+
+
+
+/* .content_nav a {
     width: 25%;
     text-align: center;
     font-size: 1.2rem;
@@ -49,4 +74,4 @@ header nav .auth_nav {
 
 .content_nav a:hover {
     background-color: rgba(87, 20, 20, 0.7);
-}
+} */

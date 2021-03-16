@@ -1,0 +1,221 @@
+.container {
+    width: 80%;
+    margin: 15px auto;
+}
+
+.top_container {
+    height: 80px;
+    text-align: right;
+}
+
+.top_container .rating_title_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.top_container .rating_title_container .rating {
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.top_container .rating_title_container .checked {
+    color: rgb(221, 11, 11);
+}
+
+
+.top_container .categorie_title {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(28, 28, 32, 0.7455357142857143) 90%, rgba(255, 0, 9, 0.6951155462184874) 94%, rgba(34, 33, 30, 1) 98%);
+    color: white;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_container .categorie_title h2 {
+    height: inherit;
+    margin: 0;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.blog_container {
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-radius: 5px;
+    padding: 50px;
+    margin-top: 10px;
+}
+
+.blog_container .blog_title h1 {
+    margin: 0;
+    font-size: 1.9rem;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 20px;
+    border-left: 10px solid black;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.blog_container .blog_text p {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 20px;
+    letter-spacing: 1px;
+    line-height: 1.7rem;
+    font-size: 1.2rem;
+    text-indent: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.blog_container .author_rate_blog {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 3px 2px black;
+    border-radius: 10px;
+}
+
+.blog_container .author_rate_blog .blog_author {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.blog_container .author_rate_blog .blog_author p {
+    margin: 2px;
+    padding: 5px;
+}
+
+.blog_container .author_rate_blog .rate_blog {
+    font-size: 1.6rem;
+}
+
+/* OPTION TO RATE BLOG */
+.rate {
+    float: left;
+    height: 46px;
+    padding: 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 50px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: rgb(221, 11, 11);
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: rgb(221, 11, 11);
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: rgb(221, 11, 11);
+}
+
+.rate_blog form button {
+    font-size: 1.2rem;
+    margin: 30px;
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.rate_blog form button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* END FOR OPTION TO RATE BLOG*/
+
+
+.bottom_container .comments {
+    display: flex;
+    margin-top: 10px;
+}
+
+/* LEAVE COMMENT */
+.bottom_container .comments .leave_comment {
+    width: 38%;
+    margin: 5px auto;
+}
+
+.bottom_container .comments .leave_comment form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.12);
+    padding: 5px;
+}
+
+.bottom_container .comments .leave_comment form input {
+    font-size: 1.2rem;
+    margin: 3px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bottom_container .comments .leave_comment form textarea {
+    font-size: 1.2rem;
+    margin: 3px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bottom_container .comments .leave_comment form button {
+    font-size: 1.2rem;
+    width: 50%;
+    margin: 3px auto;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bottom_container .comments .leave_comment form button:hover {
+    filter: brightness(1.3);
+    cursor: pointer;
+}
+
+/* EXISTING COMMENT FEED */
+.bottom_container .comments .see_comments {
+    width: 55%;
+    padding: 20px;
+    margin: 5px auto;
+    box-shadow: 3px 3px 5px black;
+}
+
+.bottom_container .comments .see_comments p {
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
