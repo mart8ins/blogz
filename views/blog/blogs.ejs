@@ -13,32 +13,37 @@
         section on left side, main blog feed - specific category feed 
         ***************************************************** -->
             <div class="left_side_blogs">
-                        <!-- ejs -->
+                <% for(let blog of allBlogsForCategory) {%>
                     <div class="blog_container">
                         <div class="blog_title">
-                            <a href="/blogs/1"><h1>Šodienas spēle bija psc!</h1></a>
+                            <a href="/blogs/<%= blog._id %>"><h1><%= blog.title %></h1></a>
                         </div>
                         <div class="blog_text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.  Recusandae totam veritatis, harum officiis quaerat dicta commodi culpa obcaecati cupiditate aliquid, voluptatibus quis quam illo distinctio, nemo eos error similique quibusdam...........
+                            <% let text = blog.text.slice(0,250) %>
+                            <%= text %>
                         </div>
                         <div class="blog_author_date_rating">
                         <div class="author_date">
-                            <p>Author Martins</p>
-                            <p>14.03.2021</p>
+                            <p>Author <%= blog.author %> </p>
+                            <p><%= blog.date %> </p>
                         </div>
                         <div class="rating_comments">
-                            <p>Komentāri: <span>5</span></p>
+                            <p>Komentāri: <span><%= blog.comments.length %> </span></p>
                             <p class="rating">Novērtējums: 
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+                                <% let ratingMax = 5 %>
+                                <% let rating = blog.rating %> 
+                                <% for(let i = 1; i <= ratingMax; i++) {%> 
+                                    <% if(i <= rating) {%>
+                                        <span class="fa fa-star checked"></span>
+                                        <% } else {%>  
+                                        <span class="fa fa-star"></span>
+                                    <% } %> 
+                                    <% } %>
                             </p>
                         </div>
                         </div>
                     </div>
-        <!-- ejs -->
+                    <% } %> 
             </div>
 
              <!-- *******************************************************
@@ -50,7 +55,7 @@
                     <p>Comment activity</p>
                 </div>
                 <!-- ejs -->
-                <div class="comment_feed">
+                <!-- <div class="comment_feed">
                     <div class="blog_of_comment">
                         <p>Posted on</p> <a href="blogs/1">Šodienas spēle bija psc!...</a>
                     </div>
@@ -60,7 +65,7 @@
                         </div>
                         <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- ejs -->
             </div>
         </div>

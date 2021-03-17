@@ -7,24 +7,31 @@
                     TOP RATED BLOG POSTS  (MAX 5)
     ***************************************************** -->
     <div class="top_rated_blogs_container">
-        <!-- ejs -->
-        <a href="/blogs/1">
-            <div class="top_rated_blog">
-                <div class="category_rating_container">
-                    <p class="top_rated_blog_category">SPORT</p>
-                    <p class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </p>
+        <% for(let blog of top5blogs) {%>
+            <% let categorie = blog.categorie.toUpperCase(); %> 
+            <a href="/blogs/<%= blog._id %>">
+                <div class="top_rated_blog">
+                    <div class="category_rating_container">
+                        <p class="top_rated_blog_category"><%= categorie %> </p>
+                        <p class="rating">
+                            <% let ratingMax = 5 %>
+                            <% let rating = blog.rating %> 
+                            <% for(let i = 1; i <= ratingMax; i++) {%> 
+                                <% if(i <= rating) {%>
+                                    <span class="fa fa-star checked"></span>
+                                    <% } else {%>  
+                                    <span class="fa fa-star"></span>
+                                   <% } %> 
+                                <% } %> 
+                        </p>
+                    </div>
+                    <% let title = blog.title.slice(0,24) %> 
+                    <h5><%= title %>...</h5>
+                    <% let text = blog.text.slice(0,100) %> 
+                    <p class="top_blog_text"><%= text %>...</p>
                 </div>
-                <h5>Šodienas spēle bija psc!...</h5>
-                <p class="top_blog_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptas ipsam labore nostrum itaque exercitationem</p>
-            </div>
-        </a>
-        <!-- ejs -->
+            </a>
+            <% } %>  
     </div>
 
 
@@ -38,34 +45,42 @@
         section on left side, main blog feed - all category blogs 
         ***************************************************** -->
         <div class="main_blog_feed_left">
-<!-- ejs -->
-            <div class="blog_container">
-                <div class="blog_title">
-                    <a href="blogs/1"><h1>Šodienas spēle bija psc!</h1></a>
-                    <p>SPORTS</p>
+
+                <% for(let blog of blogs) {%> 
+                <div class="blog_container">
+                    <div class="blog_title">
+                        <a href="blogs/<%= blog._id %>"><h1><%= blog.title %></h1></a>
+                        <% let categorie = blog.categorie.toUpperCase(); %> 
+                        <p><%= categorie %></p>
+                    </div>
+                    <div class="blog_text">
+                        <% let text = blog.text.slice(0,250) %>
+                        <%= text %>... 
+                    </div>
+                    <div class="blog_author_date_rating">
+                    <div>
+                        <p><%= blog.author %> </p>
+                        <p><%= blog.date %> </p>
+                    </div>
+                    <div>
+                        <p>Komentāri: <span><%= blog.comments.length %></span></p>
+                        <p class="rating">Novērtējums: 
+                            <p class="rating">
+                                <% let ratingMax = 5 %>
+                                <% let rating = blog.rating %> 
+                                <% for(let i = 1; i <= ratingMax; i++) {%> 
+                                    <% if(i <= rating) {%>
+                                        <span class="fa fa-star checked"></span>
+                                        <% } else {%>  
+                                        <span class="fa fa-star"></span>
+                                    <% } %> 
+                                    <% } %> 
+                            </p>
+                        </p>
+                    </div>
+                    </div>
                 </div>
-                <div class="blog_text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptas ipsam labore nostrum itaque exercitationem, aspernatur tempore facere, voluptatem perspiciatis soluta! Vitae incidunt accusamus, inventore quisquam itaque commodi obcaecati eius!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam veritatis, harum officiis quaerat dicta commodi culpa obcaecati cupiditate aliquid, voluptatibus quis quam illo distinctio, nemo eos error similique quibusdam...........
-                </div>
-                <div class="blog_author_date_rating">
-                   <div>
-                    <p>Author Martins</p>
-                    <p>14.03.2021</p>
-                   </div>
-                   <div>
-                       <p>Komentāri: <span>5</span></p>
-                       <p class="rating">Novērtējums: 
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </p>
-                   </div>
-                </div>
-            </div>
-<!-- ejs -->
+                <% } %> 
         </div>
 
         
@@ -78,7 +93,7 @@
                 <p>Comment activity</p>
             </div>
             <!-- ejs -->
-            <div class="comment_feed">
+            <!-- <div class="comment_feed">
                 <div class="blog_of_comment">
                     <p>Posted on</p> <a href="">Šodienas spēle bija psc!...</a>
                 </div>
@@ -88,7 +103,9 @@
                     </div>
                     <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
                 </div>
-            </div>
+            </div> -->
+
+           
             <!-- ejs -->
         </div>
         

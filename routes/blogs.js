@@ -1,18 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
+const Blog = require("../models/blog");
+
+
 let categorie = "";
 
-
-router.route("/blogs/:blogId")
-.get((req, res)=> {
+// specific blog route
+router.route("/:blogId")
+.get(async (req, res)=> {
     const {blogId} = req.params;
-    res.render("blog/blog", {categorie, blogId})
+    const blog = await Blog.findById(blogId)
+    res.render("blog/blog", {categorie, blog})
 })
 
-router.route("/blogs")
-.get((req, res)=> {
-    res.render("blog/blogs", {categorie})
+// all blogs for each category route
+router.route("/")
+.get(async (req, res)=> {
+    const allBlogsForCategory = await Blog.find({categorie:categorie});
+    res.render("blog/blogs", {categorie, allBlogsForCategory})
 })
 .post((req, res)=> {
 categorie = req.body.categorie;

@@ -213,9 +213,43 @@
     box-shadow: 3px 3px 5px black;
 }
 
-.bottom_container .comments .see_comments p {
+.bottom_container .comments .see_comments>p {
     margin: 0;
     font-size: 1.2rem;
     padding: 10px;
     border-bottom: 2px solid black;
+}
+
+.bottom_container .comments .see_comments .all_comments {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.bottom_container .comments .see_comments .all_comments .comment {
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.bottom_container .comments .see_comments .all_comments .comment .comment_data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom_container .comments .see_comments .all_comments .comment .comment_data p {
+    margin: 0;
+    padding: 5px 25px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+}
+
+.bottom_container .comments .see_comments .all_comments .comment .comment_data p a {
+    color: black;
+}
+
+.bottom_container .comments .see_comments .all_comments .comment .comment_text {
+    margin: 5px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.13);
+    font-size: 1.2rem;
 }
