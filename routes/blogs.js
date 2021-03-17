@@ -6,6 +6,12 @@ const Blog = require("../models/blog");
 
 let categorie = "";
 
+// to add new blog
+router.route("/new")
+.get((req, res)=> {
+    res.render("blog/new")
+})
+
 // specific blog route
 router.route("/:blogId")
 .get(async (req, res)=> {

@@ -144,11 +144,10 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     margin: 10px auto;
     border-radius: 5px;
     padding: 10px;
-    background-color: rgba(71, 71, 74, 0.486);
 }
 
 .page_activity_feed_right .last_comments_title {
-    color: white;
+    color: black;
     font-size: 1.4rem;
 }
 

@@ -7,9 +7,18 @@
         </div>
     </a>
     <nav>
+        <div class="user_nav">
+            <a href="/user/profile"><button>Profile</button></a>
+            <a href="/blogs/new"><button>New blog</button></a>
+        </div>
         <div class="auth_nav">
-            <a href=""><button>Login</button></a>
-            <a href=""><button>Register</button></a>
+            <a href="/auth/login"><button>Login</button></a>
+            <a href="/auth/register"><button>Register</button></a>
+
+            <form action="/auth/logout" method="POST">
+                <a href="#"><button>Logout</button></a>
+            </form>
+            
         </div>
     </nav>
 </header>

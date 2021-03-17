@@ -1,5 +1,4 @@
 header {
-    /* background-color: rgba(0, 0, 0, 0.2); */
     width: 80%;
     margin: 0 auto;
     padding: 5px;
@@ -22,10 +21,52 @@ header a .title {
 
 }
 
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav .user_nav {
+    margin-right: 20px;
+}
+
+header nav .user_nav a button {
+    border: none;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 1px black;
+}
+
+header nav .user_nav a:hover button {
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+
+
+
 header nav .auth_nav {
     display: flex;
-
 }
+
+header nav .auth_nav a button {
+    border: none;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 1px black;
+}
+
+header nav .auth_nav a:hover button {
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
 
 /* NAV LINKS - BUTTONS */
 .content_nav {
@@ -57,21 +98,3 @@ header nav .auth_nav {
     background-color: rgba(87, 20, 20, 0.7);
     cursor: pointer;
 }
-
-
-
-
-/* .content_nav a {
-    width: 25%;
-    text-align: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-    text-transform: uppercase;
-}
-
-.content_nav a:hover {
-    background-color: rgba(87, 20, 20, 0.7);
-} */

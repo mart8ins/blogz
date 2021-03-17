@@ -31,6 +31,7 @@ ROUTES IMPORTS
 const blogRoutes = require("./routes/blogs");
 const homeRoute = require("./routes/home");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 /* *********
 ROUTES USE
@@ -38,6 +39,7 @@ ROUTES USE
 app.use("/", homeRoute);
 app.use("/blogs", blogRoutes);
 app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 
 app.get("*", (req, res)=> {

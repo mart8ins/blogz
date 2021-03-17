@@ -1,0 +1,74 @@
+/* STYLE FOR REGISTER */
+.container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth_container {
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    font-size: 1.6rem;
+}
+
+.auth_container h4 {
+    margin: 0;
+}
+
+.auth_container div:not(#auth_button) {
+    border: 0.5px solid white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 10px 10px white;
+}
+
+.auth_container div label {
+    font-weight: bold;
+    padding: 5px;
+}
+
+
+.auth_container div input {
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+.auth_container div input:focus {
+    /* border: 1px solid red; */
+    outline: none;
+    border: 1px solid rgb(30, 247, 53);
+}
+
+#auth_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#auth_button button {
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    padding: 10px 20px;
+    background: linear-gradient(168deg, rgba(17, 16, 16, 0.3085609243697479) 45%, rgba(36, 29, 29, 1) 84%, rgba(255, 0, 0, 0.258140756302521) 93%);
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 2px 2px black;
+    border-radius: 3px;
+}
+
+#auth_button button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px black;
+    cursor: pointer;
+    background: linear-gradient(168deg, rgba(17, 16, 16, 0.3085609243697479) 5%, rgba(36, 29, 29, 1) 84%, rgba(255, 0, 0, 0.258140756302521) 93%);
+}
