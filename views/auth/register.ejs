@@ -7,17 +7,17 @@
         <form action="/auth/register" method="post">
             <div>
                 <label for="username">Username</label>
-            <input type="text" name="register[username]" id="username">
-
+                <input type="text" name="register[username]" id="username" required minlength="4">
             </div>
+
            <div>
-            <label for="email">Email</label>
-            <input type="email" name="register[email]" id="email">
+                <label for="email">Email</label>
+                <input type="email" name="register[email]" id="email" required>
            </div>
 
            <div>
-            <label for="password">Password</label>
-            <input type="password" name="register[password]" id="password">
+                <label for="password">Password</label>
+                <input type="password" name="register[password]" id="password" required minlength="6">
            </div>
 
            <div id="auth_button">

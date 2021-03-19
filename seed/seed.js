@@ -30,7 +30,8 @@ async function addBlog() {
             text: blog.text,
             rating: blog.rating,
             author: blog.author,
-            date: blog.date
+            date: blog.date,
+            author: "60545fd98c41a62844f272e1"
         })
         await newBlog.save();
     }

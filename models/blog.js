@@ -18,8 +18,8 @@ const blogSchema = new Schema({
         type: Number
     },
     author: {
-        // type: Schema.Types.ObjectId,
-        // ref: "User",
+        type: Schema.Types.ObjectId,
+        ref: "User",
         type: String,
         required: true
     },

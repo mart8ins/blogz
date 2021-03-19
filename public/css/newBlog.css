@@ -1,0 +1,104 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.form_container {
+    padding: 50px;
+}
+
+.form_container form {
+    display: flex;
+}
+
+
+.form_container form .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.form_container form .left .title,
+.categorie {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.13);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    /* margin-bottom: 20px; */
+}
+
+.form_container form .left .title label,
+.categorie label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.form_container form .left .title input,
+.categorie select {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.form_container form .left .title input:focus,
+.categorie select:focus {
+    outline-style: inset;
+    outline-color: rgba(0, 0, 0, 0.08);
+}
+
+.form_container form .left .button {
+    margin-top: 90px;
+    padding: 50px;
+}
+
+.form_container form .left .button button {
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.13);
+}
+
+.form_container form .left .button button:hover {
+    background-color: rgba(0, 0, 0, 0.33);
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+/* bloga textarea */
+.form_container form .right {
+    width: 70%;
+    height: 75vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+}
+
+.form_container form .right textarea {
+    height: 85%;
+    width: 90%;
+    font-size: 1.3rem;
+    padding: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.form_container form .right textarea:focus {
+    outline-style: inset;
+    outline-color: rgba(0, 0, 0, 0.08);
+}

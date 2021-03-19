@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+
 const Blog = require("../models/blog");
+const User = require("../models/user");
+const {categories} = require("../seed/categories");
 
 
 let categorie = "";
@@ -9,8 +12,28 @@ let categorie = "";
 // to add new blog
 router.route("/new")
 .get((req, res)=> {
-    res.render("blog/new")
+    res.render("blog/new", {categories})
 })
+.post(async (req, res)=> {
+    const {title, categorie, blog} = req.body;
+    const loggedUser = await User.findById(req.session.userId);
+    if(loggedUser) {
+        const newBlog = new Blog({
+        categorie,
+        title,
+        text: blog,
+        rating: 0,
+        author: loggedUser,
+        date: new Date()
+        })
+        await newBlog.save();
+        res.redirect("/")
+    }
+    res.redirect("/auth/login")
+})
+
+
+
 
 // specific blog route
 router.route("/:blogId")

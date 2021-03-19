@@ -1,4 +1,33 @@
 <% layout('layout/boilerplate') -%>
 <link rel="stylesheet" href="/css/newBlog.css">
 
-jauns blogs
+<div class="container">
+
+    <div class="form_container">
+        <form action="/blogs/new" method="POST">
+            <!-- left side for title and sumbit button -->
+          <div class="left">
+            <div class="title">
+                <input type="text" id="title" name="title" required placeholder="Bloga nosaukums">
+            </div>
+            <div class="categorie">
+                <select name="categorie" id="categorie" required>
+                    <option value="" hidden>Kategorija</option>
+                    <% for(let categorie of categories) {%> 
+                        <% let cat = categorie.replace(categorie[0], categorie[0].toUpperCase()) %>
+                    <option value="<%= cat %>" required><%= cat %></option>
+                    <% } %> 
+                </select>
+            </div>
+            <div class="button">
+                <button>Pievienot</button>
+            </div>
+        </div>
+            <!-- right side for adding blog  -->
+          <div class="right">
+                <textarea type="text" id="blog" name="blog" required placeholder="Ieblogzzo!"></textarea>
+        </div>
+        </form>
+    </div>
+
+</div>

@@ -11,6 +11,7 @@ router.route("/")
     const blogs = await Blog.find({});
     // top 5 blogs depending on rating (now for simplicity only 5 casual blogs)
     const top5blogs = blogs.slice(0,5);
+    console.log(req.session.userId, req.session.logged_username)
     res.render("home", {blogs, top5blogs});
 })
 
