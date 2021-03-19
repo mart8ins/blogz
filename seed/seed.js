@@ -21,20 +21,20 @@ const {blogs} = require("./blogs"); // blog data
 
 async function addBlog() {
     await Blog.deleteMany({});
-    for(let i = 0; i < blogs.length; i++) {
-        let blog = blogs[i];
-        // console.log(blog)
-        const newBlog = new Blog({
-            categorie: blog.categorie,
-            title: blog.title,
-            text: blog.text,
-            rating: blog.rating,
-            author: blog.author,
-            date: blog.date,
-            author: "60545fd98c41a62844f272e1"
-        })
-        await newBlog.save();
-    }
+    // for(let i = 0; i < blogs.length; i++) {
+    //     let blog = blogs[i];
+    //     // console.log(blog)
+    //     const newBlog = new Blog({
+    //         categorie: blog.categorie,
+    //         title: blog.title,
+    //         text: blog.text,
+    //         rating: blog.rating,
+    //         author: blog.author,
+    //         date: blog.date,
+    //         author: "60545fd98c41a62844f272e1"
+    //     })
+    //     await newBlog.save();
+    // }
 }
 
 // async funkcija, tapēc atgriež promisu, par cik šī ir tikai seeds datu darbība, connection varam noslēgt

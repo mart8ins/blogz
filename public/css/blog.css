@@ -137,6 +137,11 @@
     color: rgb(221, 11, 11);
 }
 
+.noHover:hover {
+    pointer-events: none;
+    color: #ccc;
+}
+
 .rate_blog form button {
     font-size: 1.2rem;
     margin: 30px;
@@ -151,6 +156,16 @@
 .rate_blog form button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* rate submit button if blog is already rated from user*/
+#isRated {
+    color: brown;
+    background-color: white;
+}
+
+#isRated:hover {
+    background-color: white;
 }
 
 /* END FOR OPTION TO RATE BLOG*/

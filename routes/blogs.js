@@ -1,15 +1,28 @@
 const express = require("express");
 const router = express.Router();
 
-
+/* *********************
+        MODELS
+************************ */
 const Blog = require("../models/blog");
 const User = require("../models/user");
+
+
+/* *********************
+        SEED CATEGORIES FOR SELECT/OPTION IN CREATE  NEW BLOG ROUTE
+************************ */
 const {categories} = require("../seed/categories");
 
 
-let categorie = "";
+/* *********************
+        CATEGORY TITLE - recieved from header post route
+************************ */
+let categorieTitle = "";
 
-// to add new blog
+
+/* *********************
+        ADD NEW BLOG
+************************ */
 router.route("/new")
 .get((req, res)=> {
     res.render("blog/new", {categories})
@@ -19,12 +32,12 @@ router.route("/new")
     const loggedUser = await User.findById(req.session.userId);
     if(loggedUser) {
         const newBlog = new Blog({
-        categorie,
+        categorie: categorie.toLowerCase(),
         title,
         text: blog,
-        rating: 0,
+        rating: [],
         author: loggedUser,
-        date: new Date()
+        date: new Date().toUTCString()
         })
         await newBlog.save();
         res.redirect("/")
@@ -33,24 +46,63 @@ router.route("/new")
 })
 
 
-
-
-// specific blog route
+/* *********************
+        BLOG DETAILS
+************************ */
 router.route("/:blogId")
 .get(async (req, res)=> {
     const {blogId} = req.params;
-    const blog = await Blog.findById(blogId)
-    res.render("blog/blog", {categorie, blog})
+    let isRated = 0;
+
+    // get data for blog
+    const blog = await Blog.findById(blogId).populate("author");
+
+    // get rating data if user already rated this blog
+    const allRates = blog.rating;
+    for(let rate = 0; rate < allRates.length; rate++ ) {
+        if(allRates[rate].userId == req.session.userId) {
+            isRated = allRates[rate].rate;
+        } 
+    } 
+    console.log(isRated)
+    res.render("blog/blog", {categorieTitle, blog, isRated})
+})
+.post(async(req, res)=> {
+    const {blogId} = req.params; // blog id
+    const {rate} = req.body; // rate from current logged user to current blog
+    const loggedUser = await User.findById(req.session.userId); // logged user who rates current blog
+    const updateBlogsRating = await Blog.findById(blogId); // blog which rating needs to be updated
+
+    // check if user already rated this blog, if not then add rating
+    const allRates = updateBlogsRating.rating;
+    for(let rate = 0; rate < allRates.length; rate++ ) {
+        // console.log(allRates[rate])
+        if(allRates[rate].userId == req.session.userId) {
+            console.log("Blog already rated");
+            return res.redirect("/blogs/" + blogId);
+        } 
+    } 
+    updateBlogsRating.rating.push({
+        _id: false,
+        userId: loggedUser._id,
+        rate
+    })
+    await updateBlogsRating.save();
+    res.redirect("/blogs/" + blogId);
+    
 })
 
-// all blogs for each category route
+
+/* *********************
+        ALL BLOGS IN CATEGORY
+************************ */
 router.route("/")
 .get(async (req, res)=> {
-    const allBlogsForCategory = await Blog.find({categorie:categorie});
-    res.render("blog/blogs", {categorie, allBlogsForCategory})
+    const allBlogsForCategory = await Blog.find({categorie:categorieTitle});
+    res.render("blog/blogs", {categorieTitle, allBlogsForCategory})
 })
 .post((req, res)=> {
-categorie = req.body.categorie;
+    categorieTitle = req.body.categorieTitle;
     res.redirect("/blogs");
 })
 

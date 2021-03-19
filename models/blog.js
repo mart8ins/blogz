@@ -14,13 +14,21 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
-    rating: {
-        type: Number
-    },
+    rating: [
+        {
+        _id : false,
+        userId: {
+            type: String
+        },
+        rate: {
+            type: Number, 
+        }
+    }
+    ],
     author: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        type: String,
+        // type: String,
         required: true
     },
     date: {

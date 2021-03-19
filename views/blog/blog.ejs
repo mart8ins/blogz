@@ -36,27 +36,54 @@
         </div>
         <div class="author_rate_blog">
             <div class="blog_author">
-                <p>Autors: <span><%= blog.author %></span></p>
-                <p>Datums: <span><%= blog.date %></span></p>
-                <p>Blogu skaits: <span>TOP</span></p>
-                <p>Lietotāja reitings: <span>TOP</span></p>
+                <p>Autors: <span><%= blog.author.username %></span></p>
+                <p>Pievienots: <span><%= blog.date %></span></p>
             </div>
             <div class="rate_blog">
                 <p>Novērtē šo ierakstu</p>
-                 <form action="/blogs/1" method="POST">
+                 <form action="/blogs/<%= blog._id %>" method="POST">
                     <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
+                        
+                    <% if(isRated == 5) {%> 
+                        <input type="radio" checked id="star5" name="rate" value="5" />
+                        <% } else {%> 
+                            <input disabled class="noHover" type="radio" id="star5" name="rate" value="5" />
+                            <% } %> 
                     <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
+
+                    <% if(isRated == 4) {%> 
+                        <input type="radio" checked id="star4" name="rate" value="4" />
+                        <% } else {%> 
+                            <input disabled type="radio" id="star4" name="rate" value="4" />
+                            <% } %> 
                     <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
+
+                    <% if(isRated == 3) {%> 
+                        <input type="radio" checked id="star3" name="rate" value="3" />
+                        <% } else {%> 
+                            <input disabled type="radio" id="star3" name="rate" value="3" />
+                            <% } %> 
                     <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
+
+                    <% if(isRated == 2) {%> 
+                        <input type="radio" checked id="star2" name="rate" value="2" />
+                        <% } else {%> 
+                            <input disabled type="radio" id="star2" name="rate" value="2" />
+                            <% } %> 
                     <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
+
+                    <% if(isRated == 1) {%> 
+                        <input type="radio" checked id="star1" name="rate" value="1" />
+                        <% } else {%> 
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <% } %> 
+                    <label for="star1" title="text">1 stars</label>
                     </div>
+                    <% if(!isRated) {%> 
                     <button>Iesniegt</button>
+                    <% } else {%>
+                        <button id="isRated" disabled>Novērtēts</button>
+                        <% } %>  
                  </form> 
             </div>
             
@@ -77,7 +104,7 @@
             <p>Visi komentāri</p>
             <div class="all_comments">
 <!-- ejs --> 
-                <div class="comment">
+                <!-- <div class="comment">
                     <div class="comment_data">
                         <p>Posted by: <a href="/user/1">Martins</a></p>
                         <p>17.03.2021</p>
@@ -85,7 +112,7 @@
                     <div class="comment_text">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusamus quis et consectetur possimus facere tempora voluptatum perferendis veritatis, optio explicabo vel, velit necessitatibus nam in eaque maxime dolor dolorum.
                     </div>
-                </div>
+                </div> -->
 <!-- ejs --> 
             </div>
         </div>

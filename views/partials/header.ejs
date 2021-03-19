@@ -8,15 +8,16 @@
     </a>
     <nav>
         <div class="user_nav">
-            <a href="/user/profile"><button>Profile</button></a>
-            <a href="/blogs/new"><button>New blog</button></a>
+            Sveiks! <%= loggedUser %>
+            <a href="/user/profile"><button>Profils</button></a>
+            <a href="/blogs/new"><button>Jauns blogs</button></a>
         </div>
         <div class="auth_nav">
-            <a href="/auth/login"><button>Login</button></a>
-            <a href="/auth/register"><button>Register</button></a>
+            <a href="/auth/login"><button>Ienākt</button></a>
+            <a href="/auth/register"><button>Reģistrēties</button></a>
 
             <form action="/auth/logout" method="POST">
-                <a href="#"><button>Logout</button></a>
+                <a href="#"><button>Iziet</button></a>
             </form>
             
         </div>
@@ -33,18 +34,18 @@
 
 <div class="content_nav">
     <form class="blog_categories_form" action="/blogs" method="post">
-        <button name="categorie" value="sports">Sports</button>
+        <button name="categorieTitle" value="sports">Sports</button>
     </form>
     <form class="blog_categories_form" action="/blogs" method="post">
-        <button name="categorie" value="politics">Politics</button>
+        <button name="categorieTitle" value="politics">Politics</button>
     </form>
     <form class="blog_categories_form" action="/blogs" method="post">
-        <button name="categorie" value="auto">Auto</button>
+        <button name="categorieTitle" value="auto">Auto</button>
     </form>
     <form class="blog_categories_form" action="/blogs" method="post">
-        <button name="categorie" value="lifestyle">Lifestyle</button>
+        <button name="categorieTitle" value="lifestyle">Lifestyle</button>
     </form>
     <form class="blog_categories_form" action="/blogs" method="post">
-        <button name="categorie" value="technology">Technology</button>
+        <button name="categorieTitle" value="technology">Technology</button>
     </form>
 </div>

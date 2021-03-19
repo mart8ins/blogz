@@ -41,6 +41,11 @@ const sessionOptions = {
 app.use(session(sessionOptions))
 
 
+app.use((req, res, next)=> {
+    res.locals.loggedUser = req.session.logged_username;
+    next();
+})
+
 /* *********
 ROUTES IMPORTS 
 ************* */

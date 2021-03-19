@@ -46,24 +46,24 @@
         ***************************************************** -->
         <div class="main_blog_feed_left">
 
-                <% for(let blog of blogs) {%> 
+                <% for(let blog of latestBlogs) {%> 
                 <div class="blog_container">
                     <div class="blog_title">
-                        <a href="blogs/<%= blog._id %>"><h1><%= blog.title %></h1></a>
-                        <% let categorie = blog.categorie.toUpperCase(); %> 
-                        <p><%= categorie %></p>
+                        <a href="blogs/<%= blog.id %>"><h1><%= blog.title %></h1></a> 
+                        <p><%= blog.categorie %></p>
                     </div>
                     <div class="blog_text">
-                        <% let text = blog.text.slice(0,250) %>
-                        <%= text %>... 
+                        <%= blog.text.substring(0,250) %>... 
                     </div>
                     <div class="blog_author_date_rating">
                     <div>
-                        <p><%= blog.author %> </p>
+                        <p>Autors: <%= blog.author %> </p>
                         <p><%= blog.date %> </p>
                     </div>
                     <div>
-                        <p>Komentāri: <span><%= blog.comments.length %></span></p>
+                        <% if(blog.comments) {%>
+                            <p>Komentāri: <span><%= blog.comments.length %></span></p>
+                            <% }%> 
                         <p class="rating">Novērtējums: 
                             <p class="rating">
                                 <% let ratingMax = 5 %>
@@ -93,7 +93,7 @@
                 <p>Pēdējie komentāri</p>
             </div>
             <!-- ejs -->
-            <div class="comment_feed">
+            <!-- <div class="comment_feed">
                 <div class="blog_of_comment">
                     <p>Posted on</p> <a href="">Šodienas spēle bija psc!...</a>
                 </div>
@@ -103,21 +103,7 @@
                     </div>
                     <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
                 </div>
-            </div>
-
-            <div class="comment_feed">
-                <div class="blog_of_comment">
-                    <p>Posted on</p> <a href="">Šodienas spēle bija psc!...</a>
-                </div>
-                <div class="comment">
-                    <div class="comment_text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minus quis neque quod. Expedita repellendus in itaque tempore nesciunt cupiditate reiciendis enim aliquid fugit? Eveniet voluptates ....
-                    </div>
-                    <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
-                </div>
-            </div>
-
-           
+            </div> -->
             <!-- ejs -->
         </div>
         
