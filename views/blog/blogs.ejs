@@ -13,14 +13,14 @@
         section on left side, main blog feed - specific category feed 
         ***************************************************** -->
             <div class="left_side_blogs">
-                <% for(let blog of allBlogsForCategory) {%>
+                <% for(let blog of categorieBlogs) {%>
                     <div class="blog_container">
                         <div class="blog_title">
-                            <a href="/blogs/<%= blog._id %>"><h1><%= blog.title %></h1></a>
+                            <a href="/blogs/<%= blog.id %>"><h1><%= blog.title %></h1></a>
                         </div>
                         <div class="blog_text">
-                            <% let text = blog.text.slice(0,250) %>
-                            <%= text %>
+                            
+                            <%= blog.text.substring(0,250) %>
                         </div>
                         <div class="blog_author_date_rating">
                         <div class="author_date">
@@ -28,7 +28,9 @@
                             <p><%= blog.date %> </p>
                         </div>
                         <div class="rating_comments">
+                            <% if(blog.comments) {%> 
                             <p>Komentāri: <span><%= blog.comments.length %> </span></p>
+                            <% } %> 
                             <p class="rating">Novērtējums: 
                                 <% let ratingMax = 5 %>
                                 <% let rating = blog.rating %> 

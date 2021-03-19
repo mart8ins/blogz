@@ -57,6 +57,15 @@ router.route("/:blogId")
     // get data for blog
     const blog = await Blog.findById(blogId).populate("author");
 
+    // avarage blog rating
+    let ratingCount = 0;
+    let totalCount = 0;
+    blog.rating.forEach((rate)=> {
+        ratingCount += rate.rate;
+        totalCount++;
+   })
+    let avarage = Math.round(ratingCount / totalCount);
+
     // get rating data if user already rated this blog
     const allRates = blog.rating;
     for(let rate = 0; rate < allRates.length; rate++ ) {
@@ -64,8 +73,7 @@ router.route("/:blogId")
             isRated = allRates[rate].rate;
         } 
     } 
-    console.log(isRated)
-    res.render("blog/blog", {categorieTitle, blog, isRated})
+    res.render("blog/blog", {categorieTitle, blog, isRated, avarage})
 })
 .post(async(req, res)=> {
     const {blogId} = req.params; // blog id
@@ -76,7 +84,6 @@ router.route("/:blogId")
     // check if user already rated this blog, if not then add rating
     const allRates = updateBlogsRating.rating;
     for(let rate = 0; rate < allRates.length; rate++ ) {
-        // console.log(allRates[rate])
         if(allRates[rate].userId == req.session.userId) {
             console.log("Blog already rated");
             return res.redirect("/blogs/" + blogId);
@@ -98,8 +105,29 @@ router.route("/:blogId")
 ************************ */
 router.route("/")
 .get(async (req, res)=> {
-    const allBlogsForCategory = await Blog.find({categorie:categorieTitle});
-    res.render("blog/blogs", {categorieTitle, allBlogsForCategory})
+    const allBlogsForCategory = await Blog.find({categorie:categorieTitle}).populate("author");
+
+    const categorieBlogs = allBlogsForCategory.map((blog)=> {
+        // avarage blog rating
+        let ratingTotal = 0;
+        let countTotal = 0;
+        blog.rating.forEach((rate)=> {
+            ratingTotal += rate.rate;
+            countTotal++;
+        })
+        return {
+        id: blog._id,
+        title: blog.title,
+        categorie: blog.categorie.toUpperCase(),
+        text: blog.text,
+        author: blog.author.username,
+        date: blog.date,
+        rating: Math.round(ratingTotal / countTotal)
+        }
+    })
+
+
+    res.render("blog/blogs", {categorieTitle, categorieBlogs})
 })
 .post((req, res)=> {
     categorieTitle = req.body.categorieTitle;

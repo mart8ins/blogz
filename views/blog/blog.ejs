@@ -10,7 +10,7 @@
         <div class="rating_title_container">
             <p class="rating">Bloga kopējais vērtējums: 
                 <% let ratingMax = 5 %>
-                <% let rating = blog.rating %> 
+                <% let rating = avarage ? avarage : 0 %> 
                 <% for(let i = 1; i <= ratingMax; i++) {%> 
                     <% if(i <= rating) {%>
                         <span class="fa fa-star checked"></span>
@@ -40,7 +40,9 @@
                 <p>Pievienots: <span><%= blog.date %></span></p>
             </div>
             <div class="rate_blog">
+                <% if(!isRated) {%>
                 <p>Novērtē šo ierakstu</p>
+                <% } %> 
                  <form action="/blogs/<%= blog._id %>" method="POST">
                     <div class="rate">
                         <% if(isRated) {%> 
