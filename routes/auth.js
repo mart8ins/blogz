@@ -22,7 +22,7 @@ router.route("/login")
             // passwordMatch ? res.redirect("/") : res.redirect("/auth/login");
             if(passwordMatch) {
                 req.session.userId = usernameTaken._id;
-                req.session.logged_username = usernameTaken.username;
+                req.session.username = usernameTaken.username;
                 res.redirect("/")
             } else {
                 res.redirect("/auth/login");
@@ -62,7 +62,7 @@ router.route("/register")
 router.route("/logout")
 .post((req,res)=> {
     req.session.userId = null;
-    req.session.logged_username = null;
+    req.session.username = null;
     res.redirect("/")
 })
 

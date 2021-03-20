@@ -82,7 +82,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 35%;
 }
 
 .blog_container .author_rate_blog .blog_author p {
@@ -166,6 +166,12 @@
 
 #isRated:hover {
     background-color: white;
+}
+
+/* info for not logged user for option to rate blog */
+#not_logged_for_rating {
+    font-size: 1rem;
+    margin: 30px;
 }
 
 /* END FOR OPTION TO RATE BLOG*/
@@ -267,4 +273,10 @@
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.13);
     font-size: 1.2rem;
+}
+
+/* if user is not logged cant comment msg */
+#not_logged_for_comment {
+    margin: 60px;
+    text-align: center;
 }

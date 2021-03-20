@@ -42,7 +42,8 @@ app.use(session(sessionOptions))
 
 
 app.use((req, res, next)=> {
-    res.locals.loggedUser = req.session.logged_username;
+    res.locals.username = req.session.username;
+    res.locals.userId = req.session.userId;
     next();
 })
 
