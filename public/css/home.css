@@ -188,4 +188,17 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 
 .page_activity_feed_right .comment_feed .comment .comment_text {
     text-align: justify;
+    margin-bottom: 10px;
+}
+
+.page_activity_feed_right .comment_feed .comment .comment_author {
+    margin: 0;
+}
+
+.page_activity_feed_right .comment_feed .comment .comment_author strong {
+    font-size: 1.2rem;
+}
+
+.page_activity_feed_right .comment_feed .comment .comment_author em {
+    float: right;
 }

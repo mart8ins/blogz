@@ -3,12 +3,16 @@ const router = express.Router();
 
 // MODELS 
 const Blog = require("../models/blog");
+const Comment = require("../models/comment");
 
 
 router.route("/")
 .get(async (req, res)=> {
     // all blogs in db
-    const blogs = await Blog.find({}).populate("author");
+    const blogs = await Blog.find({}).populate("author").populate("comments");
+    // all comments in db
+    const commentsAll = await Comment.find({});
+    const latest5comments = commentsAll.reverse().slice(0,5);
 
     const latestBlogs = blogs.map((blog)=> {
         // avarage blog rating
@@ -25,7 +29,8 @@ router.route("/")
         text: blog.text,
         author: blog.author.username,
         date: blog.date,
-        rating: Math.round(ratingTotal / countTotal)
+        rating: Math.round(ratingTotal / countTotal),
+        commentsLength: blog.comments.length
         }
     })
 
@@ -39,12 +44,11 @@ router.route("/")
             rating: blog.rating ? blog.rating : 0
         }
     });
-
     // top 5 blogs depending on rating (now for simplicity only 5 casual blogs)
     const top5blogs = blogs.slice(0,5);
 
     
-    res.render("home", {latestBlogs, top5blogs});
+    res.render("home", {latestBlogs, top5blogs, latest5comments});
 })
 
 

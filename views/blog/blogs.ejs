@@ -13,6 +13,11 @@
         section on left side, main blog feed - specific category feed 
         ***************************************************** -->
             <div class="left_side_blogs">
+                <% if(!categorieBlogs.length) {%> 
+                <div class="no_blogs">
+                    <a href="/blogs/new">Esi pirmais, pievieno blogu!</a>
+                </div>
+                <% } %> 
                 <% for(let blog of categorieBlogs.reverse()) {%>
                     <div class="blog_container">
                         <div class="blog_title">
@@ -28,8 +33,8 @@
                             <p><%= blog.date %> </p>
                         </div>
                         <div class="rating_comments">
-                            <% if(blog.comments) {%> 
-                            <p>Komentāri: <span><%= blog.comments.length %> </span></p>
+                            <% if(blog.commentsLength) {%> 
+                            <p>Komentāri: <span><%= blog.commentsLength %> </span></p>
                             <% } %> 
                             <p class="rating">Novērtējums: 
                                 <% let ratingMax = 5 %>
@@ -51,26 +56,34 @@
              <!-- *******************************************************
         section on right side, homepage activity, last added comments for specific category
         ********************************************************* -->
+        <% if(categorieBlogs.length) {%> 
         <div class="right_side_activity">
             <div class="comments_container">
+                <% if(allCommentsForCategorie.length) {%> 
                 <div class="last_comments_title">
-                    <p>Comment activity</p>
+                    <p>Pēdējie komentāri</p>
                 </div>
-                <!-- ejs -->
-                <!-- <div class="comment_feed">
-                    <div class="blog_of_comment">
-                        <p>Posted on</p> <a href="blogs/1">Šodienas spēle bija psc!...</a>
+                <% } else {%>
+                    <div class="last_comments_title">
+                        <p>Komentāru nav</p>
                     </div>
-                    <div class="comment">
-                        <div class="comment_text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minus quis neque quod. Expedita repellendus fugit? Eveniet voluptates ....
+                    <% } %>  
+               <% for(let comment of allCommentsForCategorie.reverse()) {%> 
+                    <div class="comment_feed">
+                        <div class="blog_of_comment">
+                            <p>Komentēts iekš</p> <a href="/blogs/<%= comment.blog.id %>"><%= comment.blog.title %></a>
                         </div>
-                        <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
+                        <div class="comment">
+                            <div class="comment_text">
+                                <%= comment.text %>
+                            </div>
+                            <p class="comment_author"><strong><%= comment.author %></strong> <em><%= comment.date %></em></p>
+                        </div>
                     </div>
-                </div> -->
-                <!-- ejs -->
+                   <% } %> 
             </div>
         </div>
+        <% } %> 
   
 
         </div>

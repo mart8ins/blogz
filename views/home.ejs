@@ -61,8 +61,8 @@
                         <p><%= blog.date %> </p>
                     </div>
                     <div>
-                        <% if(blog.comments) {%>
-                            <p>Komentāri: <span><%= blog.comments.length %></span></p>
+                        <% if(blog.commentsLength) {%>
+                            <p>Komentāri: <span><%= blog.commentsLength %></span></p>
                             <% }%> 
                         <p class="rating">Novērtējums: 
                             <p class="rating">
@@ -92,6 +92,19 @@
             <div class="last_comments_title">
                 <p>Pēdējie komentāri</p>
             </div>
+            <% for(let comment of latest5comments) {%>
+                <div class="comment_feed">
+                    <div class="blog_of_comment">
+                        <p>Komentēts iekš</p> <a href="/blogs/<%= comment.blog.id %>"><%= comment.blog.title %> </a>
+                    </div>
+                    <div class="comment">
+                        <div class="comment_text">
+                            <%= comment.text %> 
+                        </div>
+                        <p class="comment_author"><strong><%= comment.author %></strong><em><%= comment.date %></em> </p>
+                    </div>
+                </div>
+                <% } %>  
             <!-- ejs -->
             <!-- <div class="comment_feed">
                 <div class="blog_of_comment">

@@ -12,6 +12,7 @@ const {loggedUserRouteGuard} = require("../middleware/routingGuard");
 ************************ */
 const Blog = require("../models/blog");
 const User = require("../models/user");
+const Comment = require("../models/comment");
 
 
 
@@ -48,8 +49,8 @@ router.route("/new")
         date: new Date().toUTCString()
         })
         await newBlog.save();
-        res.redirect("/")
-    }
+        return res.redirect("/")
+    } 
     res.redirect("/auth/login")
 })
 
@@ -60,11 +61,13 @@ router.route("/new")
 router.route("/:blogId")
 .get(async (req, res)=> {
     const {blogId} = req.params;
-    let isRated = 0;
+    const loggedUserUsername = req.session.username;
 
     // get data for blog
-    const blog = await Blog.findById(blogId).populate("author");
+    const blog = await Blog.findById(blogId).populate("author").populate("comments");
 
+    /********* DISPLAY RATING ********/
+    let isRated = 0;
     // avarage blog rating
     let ratingCount = 0;
     let totalCount = 0;
@@ -73,7 +76,6 @@ router.route("/:blogId")
         totalCount++;
    })
     let avarage = Math.round(ratingCount / totalCount);
-
     // get rating data if user already rated this blog
     const allRates = blog.rating;
     for(let rate = 0; rate < allRates.length; rate++ ) {
@@ -81,30 +83,56 @@ router.route("/:blogId")
             isRated = allRates[rate].rate;
         } 
     } 
-    res.render("blog/blog", {categorieTitle, blog, isRated, avarage})
+
+    /********* DISPLAY COMMENTS ********/
+    const comments = blog.comments;
+    console.log(comments)
+
+
+    res.render("blog/blog", {categorieTitle, blog, isRated, avarage, loggedUserUsername, comments})
 })
 .post(async(req, res)=> {
     const {blogId} = req.params; // blog id
-    const {rate} = req.body; // rate from current logged user to current blog
+    const {rate, comment} = req.body; // rate or comment from current logged user to current blog
     const loggedUser = await User.findById(req.session.userId); // logged user who rates current blog
-    const updateBlogsRating = await Blog.findById(blogId); // blog which rating needs to be updated
+    const currentBlog = await Blog.findById(blogId); // blog which rating needs to be updated
 
+    /********* ADD RATING ***********/
     // check if user already rated this blog, if not then add rating
-    const allRates = updateBlogsRating.rating;
+    if(rate) {
+        const allRates = currentBlog.rating;
     for(let rate = 0; rate < allRates.length; rate++ ) {
         if(allRates[rate].userId == req.session.userId) {
-            console.log("Blog already rated");
             return res.redirect("/blogs/" + blogId);
         } 
     } 
-    updateBlogsRating.rating.push({
+    currentBlog.rating.push({
         _id: false,
         userId: loggedUser._id,
         rate
     })
-    await updateBlogsRating.save();
+    await currentBlog.save();
+    }
+
+    /********* ADD COMMENT ***********/
+
+    if(comment){
+        const newComment = new Comment({
+            author: loggedUser.username,
+            text: comment,
+            date: new Date().toUTCString(),
+            blog: {
+                title: currentBlog.title,
+                id: currentBlog._id,
+                categorie: currentBlog.categorie
+            }
+        })
+        await newComment.save();
+        currentBlog.comments.push(newComment);
+        await currentBlog.save();
+    }
+
     res.redirect("/blogs/" + blogId);
-    
 })
 
 
@@ -113,8 +141,13 @@ router.route("/:blogId")
 ************************ */
 router.route("/")
 .get(async (req, res)=> {
-    const allBlogsForCategory = await Blog.find({categorie:categorieTitle}).populate("author");
+    // get all blogs for current categorie
+    const allBlogsForCategory = await Blog.find({categorie:categorieTitle}).populate("author").populate("comments");
+    
+    // get all comments for current categorie
+    const allCommentsForCategorie = await Comment.find({"blog.categorie": categorieTitle});
 
+    // map all categorie blogs
     const categorieBlogs = allBlogsForCategory.map((blog)=> {
         // avarage blog rating
         let ratingTotal = 0;
@@ -130,12 +163,13 @@ router.route("/")
         text: blog.text,
         author: blog.author.username,
         date: blog.date,
-        rating: Math.round(ratingTotal / countTotal)
+        rating: Math.round(ratingTotal / countTotal),
+        commentsLength: blog.comments.length
         }
     })
 
 
-    res.render("blog/blogs", {categorieTitle, categorieBlogs})
+    res.render("blog/blogs", {categorieTitle, categorieBlogs, allCommentsForCategorie})
 })
 .post((req, res)=> {
     categorieTitle = req.body.categorieTitle;

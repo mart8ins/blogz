@@ -24,6 +24,18 @@
 /* ***************************************
                     BLOG FEED
 **************************************** */
+.left_side_blogs .no_blogs {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_side_blogs .no_blogs a {
+    /* text-decoration: none; */
+    font-size: 2rem;
+}
+
 .container .feed_container .page_feed {
     display: flex;
     margin-top: 15px;
@@ -95,11 +107,10 @@
 .container .feed_container .page_feed .right_side_activity .comments_container {
     border-radius: 5px;
     padding: 10px;
-    background-color: rgba(71, 71, 74, 0.486);
 }
 
 .container .feed_container .page_feed .right_side_activity .comments_container .last_comments_title {
-    color: white;
+    color: black;
     font-size: 1.4rem;
 }
 
@@ -133,4 +144,13 @@
 
 .container .feed_container .page_feed .right_side_activity .comments_container .comment_feed .comment .comment_text {
     text-align: justify;
+    margin-bottom: 15px;
+}
+
+.container .feed_container .page_feed .right_side_activity .comments_container .comment_feed .comment .comment_author {
+    margin: 0;
+}
+
+.container .feed_container .page_feed .right_side_activity .comments_container .comment_feed .comment .comment_author em {
+    float: right;
 }
