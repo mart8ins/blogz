@@ -86,7 +86,6 @@ router.route("/:blogId")
 
     /********* DISPLAY COMMENTS ********/
     const comments = blog.comments;
-    console.log(comments)
 
 
     res.render("blog/blog", {categorieTitle, blog, isRated, avarage, loggedUserUsername, comments})
@@ -167,8 +166,6 @@ router.route("/")
         commentsLength: blog.comments.length
         }
     })
-
-
     res.render("blog/blogs", {categorieTitle, categorieBlogs, allCommentsForCategorie})
 })
 .post((req, res)=> {

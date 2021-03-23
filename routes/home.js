@@ -14,6 +14,7 @@ router.route("/")
     const commentsAll = await Comment.find({});
     const latest5comments = commentsAll.reverse().slice(0,5);
 
+    // all blo
     const latestBlogs = blogs.map((blog)=> {
         // avarage blog rating
         let ratingTotal = 0;
@@ -34,20 +35,19 @@ router.route("/")
         }
     })
 
-    // range all blogs from top rated to low rated descent
-    let sortedBlogsRatings = latestBlogs.map((blog)=> {
-        return {
-            id: blog.id,
-            title: blog.title,
-            categorie: blog.categorie,
-            text: blog.text,
-            rating: blog.rating ? blog.rating : 0
+    // top 5 blogs depending on rating, minimum rating 3 (5 latest with best rating)
+    let top5blogs = [];
+    for(let blog of latestBlogs.reverse()) {
+        if(blog.rating == 5 && top5blogs.length != 5) {
+            top5blogs.push(blog)
+        } else if(blog.rating == 4 && top5blogs.length != 5) {
+            top5blogs.push(blog)
+        } else if(blog.rating == 3 && top5blogs.length != 5) {
+            top5blogs.push(blog)
         }
-    });
-    // top 5 blogs depending on rating (now for simplicity only 5 casual blogs)
-    const top5blogs = blogs.slice(0,5);
-
-    
+    }
+    console.log(top5blogs)
+   
     res.render("home", {latestBlogs, top5blogs, latest5comments});
 })
 

@@ -10,6 +10,7 @@ ALL CONENT CONTAINER
 MAX 5 TOP RATED BLOGS
 ********************* */
 .top_rated_blogs_container {
+    background-color: rgba(78, 75, 75, 0.377);
     margin-top: 5px;
     border-top: 3px solid rgba(78, 75, 75, 0.377);
     border-bottom: 3px solid rgba(78, 75, 75, 0.377);
@@ -17,7 +18,7 @@ MAX 5 TOP RATED BLOGS
     border-bottom-right-radius: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 5px;
+    padding: 15px;
     display: flex;
     /* justify-content: space-around; */
 }
@@ -25,26 +26,29 @@ MAX 5 TOP RATED BLOGS
 /* each top blog / link to */
 .top_rated_blogs_container a {
     text-decoration: none;
-    color: black;
-    width: 20%;
+    width: 18%;
+    margin: auto;
+    box-shadow: 0px 5px 5px white;
+    border-radius: 5px;
 }
 
 .top_rated_blogs_container a:hover {
-    transform: scale(1.05)
+    transform: scale(1.05);
+    box-shadow: 0px 5px 8px white;
 }
 
 .top_rated_blogs_container .top_rated_blog {
-    background-color: black;
-    color: white;
     padding: 5px;
     margin: 5px;
+    background: linear-gradient(114deg, rgba(255, 255, 255, 1) 0%, rgba(175, 174, 174, 1) 92%);
+    border-radius: 5px;
 }
 
 .top_rated_blogs_container .top_rated_blog .category_rating_container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: white;
+    /* background-color: white; */
     color: black;
     padding: 5px;
 }
@@ -69,13 +73,14 @@ MAX 5 TOP RATED BLOGS
     margin: 0px 0px 0px;
     font-size: 1rem;
     padding: 5px;
+    color: black;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
 .top_rated_blogs_container .top_rated_blog .top_blog_text {
     font-size: 0.8rem;
     text-align: justify;
-    padding: 15px;
+    padding: 5px;
     margin: 0;
     background-color: rgba(255, 255, 255, 0.7);
 }

@@ -9,7 +9,7 @@
     <div class="top_rated_blogs_container">
         <% for(let blog of top5blogs) {%>
             <% let categorie = blog.categorie.toUpperCase(); %> 
-            <a href="/blogs/<%= blog._id %>">
+            <a href="/blogs/<%= blog.id %>">
                 <div class="top_rated_blog">
                     <div class="category_rating_container">
                         <p class="top_rated_blog_category"><%= categorie %> </p>
@@ -46,7 +46,7 @@
         ***************************************************** -->
         <div class="main_blog_feed_left">
 
-                <% for(let blog of latestBlogs.reverse()) {%> 
+                <% for(let blog of latestBlogs) {%> 
                 <div class="blog_container">
                     <div class="blog_title">
                         <a href="blogs/<%= blog.id %>"><h1><%= blog.title %></h1></a> 
