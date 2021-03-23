@@ -19,13 +19,14 @@ MAX 5 TOP RATED BLOGS
     border-top-right-radius: 5px;
     padding: 5px;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 /* each top blog / link to */
 .top_rated_blogs_container a {
     text-decoration: none;
     color: black;
+    width: 20%;
 }
 
 .top_rated_blogs_container a:hover {
@@ -33,16 +34,19 @@ MAX 5 TOP RATED BLOGS
 }
 
 .top_rated_blogs_container .top_rated_blog {
-    width: 270px;
-    border: 1px solid black;
+    background-color: black;
+    color: white;
     padding: 5px;
     margin: 5px;
 }
 
 .top_rated_blogs_container .top_rated_blog .category_rating_container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    /* margin: 0; */
+    background-color: white;
+    color: black;
+    padding: 5px;
 }
 
 .top_rated_blogs_container .top_rated_blog .category_rating_container p {
@@ -62,15 +66,18 @@ MAX 5 TOP RATED BLOGS
 
 .top_rated_blogs_container .top_rated_blog h5 {
     text-align: left;
-    margin: 10px 0px 0px;
+    margin: 0px 0px 0px;
     font-size: 1rem;
     padding: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .top_rated_blogs_container .top_rated_blog .top_blog_text {
     font-size: 0.8rem;
     text-align: justify;
-    padding: 5px;
+    padding: 15px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 

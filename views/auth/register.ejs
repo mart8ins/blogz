@@ -4,19 +4,22 @@
 <div class="container">
     <div class="auth_container">
         <h4>Pievienojies!</h4>
+        <% if(error.length) {%>
+            <p class="error_msg"><%= error %></p>
+            <% } %>
         <form action="/auth/register" method="post">
             <div>
-                <label for="username">Username</label>
+                <label for="username">Lietotājvārds</label>
                 <input type="text" name="register[username]" id="username" required minlength="4">
             </div>
 
            <div>
-                <label for="email">Email</label>
+                <label for="email">E-pasts</label>
                 <input type="email" name="register[email]" id="email" required>
            </div>
 
            <div>
-                <label for="password">Password</label>
+                <label for="password">Parole</label>
                 <input type="password" name="register[password]" id="password" required minlength="6">
            </div>
 

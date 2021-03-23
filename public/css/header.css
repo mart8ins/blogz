@@ -98,3 +98,9 @@ header nav .auth_nav a:hover button {
     background-color: rgba(87, 20, 20, 0.7);
     cursor: pointer;
 }
+
+.login_success_greet {
+    margin-right: 30px;
+    font-size: 1.3rem;
+    /* color: red; */
+}

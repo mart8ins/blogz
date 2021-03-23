@@ -29,6 +29,17 @@ router.route("/")
         }
     })
 
+    // range all blogs from top rated to low rated descent
+    let sortedBlogsRatings = latestBlogs.map((blog)=> {
+        return {
+            id: blog.id,
+            title: blog.title,
+            categorie: blog.categorie,
+            text: blog.text,
+            rating: blog.rating ? blog.rating : 0
+        }
+    });
+
     // top 5 blogs depending on rating (now for simplicity only 5 casual blogs)
     const top5blogs = blogs.slice(0,5);
 

@@ -13,7 +13,7 @@
         section on left side, main blog feed - specific category feed 
         ***************************************************** -->
             <div class="left_side_blogs">
-                <% for(let blog of categorieBlogs) {%>
+                <% for(let blog of categorieBlogs.reverse()) {%>
                     <div class="blog_container">
                         <div class="blog_title">
                             <a href="/blogs/<%= blog.id %>"><h1><%= blog.title %></h1></a>

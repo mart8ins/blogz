@@ -2,10 +2,19 @@ const express = require("express");
 const router = express.Router();
 
 /* *********************
+        MIDDLEWARE
+************************ */
+const {loggedUserRouteGuard} = require("../middleware/routingGuard");
+// router.use(loggedUserRouteGuard);
+
+/* *********************
         MODELS
 ************************ */
 const Blog = require("../models/blog");
 const User = require("../models/user");
+
+
+
 
 
 /* *********************
@@ -19,15 +28,14 @@ const {categories} = require("../seed/categories");
 ************************ */
 let categorieTitle = "";
 
-
 /* *********************
         ADD NEW BLOG
 ************************ */
 router.route("/new")
-.get((req, res)=> {
+.get(loggedUserRouteGuard,(req, res)=> {
     res.render("blog/new", {categories})
 })
-.post(async (req, res)=> {
+.post(loggedUserRouteGuard, async (req, res)=> {
     const {title, categorie, blog} = req.body;
     const loggedUser = await User.findById(req.session.userId);
     if(loggedUser) {

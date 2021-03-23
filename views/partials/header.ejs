@@ -7,18 +7,26 @@
         </div>
     </a>
     <nav>
+        <% if(success.length) {%> 
+            <span class="login_success_greet"><strong><%= success %></strong></span>
+            <% } %> 
         <div class="user_nav">
-            Sveiks! <%= username %>
+            <% if(userId) {%> 
             <a href="/user/profile"><button>Profils</button></a>
             <a href="/blogs/new"><button>Jauns blogs</button></a>
+            <% } %> 
         </div>
         <div class="auth_nav">
-            <a href="/auth/login"><button>Ienākt</button></a>
+            <% if(!userId) {%>
+                <a href="/auth/login"><button>Ienākt</button></a>
             <a href="/auth/register"><button>Reģistrēties</button></a>
+                <% } %>  
 
-            <form action="/auth/logout" method="POST">
-                <a href="#"><button>Iziet</button></a>
-            </form>
+            <% if(userId) {%>
+                <form action="/auth/logout" method="POST">
+                    <a href="#"><button>Iziet</button></a>
+                </form>
+                <% } %> 
             
         </div>
     </nav>

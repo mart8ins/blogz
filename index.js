@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require("express");
 const engineMate = require("ejs-mate");
 const app = express();
+const flash = require('connect-flash');
 
 const session = require('express-session'); 
 const MongoStore = require('connect-mongo');
@@ -13,6 +14,8 @@ app.set("view engine", "ejs"); // to render files without extension
 app.engine("ejs", engineMate); // use ejs-locals for all ejs templates
 app.set("views",__dirname + "/views");
 
+/* flash messages */
+// app.use(require('flash')());
 
 
 /* *********
@@ -38,12 +41,14 @@ const sessionOptions = {
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_ADRESS })
     // cookie: { secure: true }
   }
-app.use(session(sessionOptions))
+app.use(session(sessionOptions), flash())
 
 
 app.use((req, res, next)=> {
     res.locals.username = req.session.username;
     res.locals.userId = req.session.userId;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 })
 
