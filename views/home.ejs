@@ -49,23 +49,23 @@
                 <% for(let blog of latestBlogs) {%> 
                 <div class="blog_container">
                     <div class="blog_title">
-                        <a href="blogs/<%= blog.id %>"><h1><%= blog.title %></h1></a> 
+                        <a href="blogs/<%= blog.id %>"><h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1></a> 
                         <p><%= blog.categorie %></p>
                     </div>
                     <div class="blog_text">
                         <%= blog.text.substring(0,250) %>... 
                     </div>
                     <div class="blog_author_date_rating">
-                    <div>
-                        <p>Autors: <%= blog.author %> </p>
+                    <div class="author_date">
+                        <p><span class="author_icon"><i class="fa fa-user-edit"></i></span> <%= blog.author %> </p>
                         <p><%= blog.date %> </p>
                     </div>
-                    <div>
+                    <div class="commentsQ_rating">
                         <% if(blog.commentsLength) {%>
                             <p>Komentāri: <span><%= blog.commentsLength %></span></p>
                             <% }%> 
-                        <p class="rating">Novērtējums: 
                             <p class="rating">
+                                <span>Novērtējums</span>
                                 <% let ratingMax = 5 %>
                                 <% let rating = blog.rating %> 
                                 <% for(let i = 1; i <= ratingMax; i++) {%> 
@@ -76,7 +76,6 @@
                                     <% } %> 
                                     <% } %> 
                             </p>
-                        </p>
                     </div>
                     </div>
                 </div>
@@ -99,25 +98,12 @@
                     </div>
                     <div class="comment">
                         <div class="comment_text">
-                            <%= comment.text %> 
+                            <%= comment.text.substring(0,180) %>... 
                         </div>
-                        <p class="comment_author"><strong><%= comment.author %></strong><em><%= comment.date %></em> </p>
+                        <p class="comment_author"><span class="author_icon"><i class="fa fa-user-edit"></i></span> <strong><%= comment.author %></strong><em><%= comment.date %></em> </p>
                     </div>
                 </div>
                 <% } %>  
-            <!-- ejs -->
-            <!-- <div class="comment_feed">
-                <div class="blog_of_comment">
-                    <p>Posted on</p> <a href="">Šodienas spēle bija psc!...</a>
-                </div>
-                <div class="comment">
-                    <div class="comment_text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minus quis neque quod. Expedita repellendus in itaque tempore nesciunt cupiditate reiciendis enim aliquid fugit? Eveniet voluptates ....
-                    </div>
-                    <p class="comment_author">Comment left by Aiga, 15.03.2021</p>
-                </div>
-            </div> -->
-            <!-- ejs -->
         </div>
         
     </div>

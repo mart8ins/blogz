@@ -36,8 +36,8 @@
         </div>
         <div class="author_rate_blog">
             <div class="blog_author">
-                <p>Autors: <a href="/user/<%= blog.author.username %>/profile"><span><%= blog.author.username %></span></a></p>
-                <p>Pievienots: <span><%= blog.date %></span></p>
+                <p><span class="author_icon"><i class="fa fa-user-edit"></i></span><a href="/user/<%= blog.author.username %>/profile"><span><%= blog.author.username %></span></a></p>
+                <p><span class="clock_icon"><i class="fa fa-clock"></i></span><span><%= blog.date %></span></p>
             </div>
             
                 <div class="rate_blog">
@@ -116,7 +116,7 @@
         <div class="leave_comment">
             <% if(userId) {%> 
             <form action="/blogs/<%= blog._id %>" method="POST">
-            <label for="comment">Pievienot komentāru</label>
+            <label for="comment" class="label_comment">Pievienot komentāru</label>
             <input type="text" name="username" value="<%= loggedUserUsername %>" disabled>
             <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
             <button>Komentēt</button>
@@ -132,7 +132,7 @@
                 <% for(let comment of comments.reverse()) {%>
                     <div class="comment">
                     <div class="comment_data">
-                        <p>Komentēja <a href="/user/<%= comment.author %>/profile"><%= comment.author %></a></p>
+                        <p><span class="comment_icon"><i class="fa fa-user-edit"></i></span><a href="/user/<%= comment.author %>/profile"><%= comment.author %></a></p>
                         <p><%= comment.date %> </p>
                     </div>
                     <div class="comment_text">
@@ -140,17 +140,6 @@
                     </div>
                 </div>
                     <% } %> 
-<!-- ejs --> 
-                <!-- <div class="comment">
-                    <div class="comment_data">
-                        <p>Posted by: <a href="/user/1">Martins</a></p>
-                        <p>17.03.2021</p>
-                    </div>
-                    <div class="comment_text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusamus quis et consectetur possimus facere tempora voluptatum perferendis veritatis, optio explicabo vel, velit necessitatibus nam in eaque maxime dolor dolorum.
-                    </div>
-                </div> -->
-<!-- ejs --> 
             </div>
         </div>
        </div>

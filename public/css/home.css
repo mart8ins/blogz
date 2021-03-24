@@ -10,7 +10,7 @@ ALL CONENT CONTAINER
 MAX 5 TOP RATED BLOGS
 ********************* */
 .top_rated_blogs_container {
-    background-color: rgba(78, 75, 75, 0.377);
+    background-color: rgba(78, 75, 75, 0.123);
     margin-top: 5px;
     border-top: 3px solid rgba(78, 75, 75, 0.377);
     border-bottom: 3px solid rgba(78, 75, 75, 0.377);
@@ -101,6 +101,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 }
 
 .main_blog_feed_left .blog_container {
+    background-color: whitesmoke;
     box-shadow: 1px 2px 3px black;
     border-radius: 5px;
     padding: 20px;
@@ -111,15 +112,19 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 .main_blog_feed_left .blog_container .blog_title {
     display: flex;
     justify-content: space-between;
+}
 
+.main_blog_feed_left .blog_container .blog_title a {
+    text-decoration: none;
 }
 
 .main_blog_feed_left .blog_container .blog_title h1 {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 1);
+    font-size: 2rem;
 }
 
 .main_blog_feed_left .blog_container .blog_title h1:hover {
-    color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .main_blog_feed_left .blog_container .blog_title p {
@@ -144,6 +149,16 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 .main_blog_feed_left .blog_container .blog_author_date_rating {
     display: flex;
     justify-content: space-between;
+}
+
+
+.main_blog_feed_left .blog_container .blog_author_date_rating .author_date p:last-child {
+    font-size: 0.7rem;
+}
+
+.main_blog_feed_left .blog_container .blog_author_date_rating .author_icon {
+    font-size: 1.3rem;
+    margin-right: 10px;
 }
 
 .main_blog_feed_left .blog_container .blog_author_date_rating .checked {
@@ -193,7 +208,8 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 
 .page_activity_feed_right .comment_feed .comment .comment_text {
     text-align: justify;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
 }
 
 .page_activity_feed_right .comment_feed .comment .comment_author {
@@ -201,7 +217,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 }
 
 .page_activity_feed_right .comment_feed .comment .comment_author strong {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 
 .page_activity_feed_right .comment_feed .comment .comment_author em {
