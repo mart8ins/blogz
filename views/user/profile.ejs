@@ -1,4 +1,119 @@
 <% layout('layout/boilerplate') -%>
 <link rel="stylesheet" href="/css/profile.css">
 
-profils
+<div class="container">
+    <div class="top_container">
+        <p class="greet_user">Sveicināti, <%= username %> ! <span class="face_icon"><i class="far fa-smile-wink"></i></span></p>
+    </div>
+
+    <div class="middle_container">
+
+        <div class="account_data">
+            <div class="blogzz_stats">
+                Blogzz lietotāja statistika
+            </div>
+            <!-- Stats buttons-->
+            <div class="stats_btn_container">
+                <p id="blogs_btn" class="btn">Izveidotie blogi: <span class="quantity"><%= usersBlogs.length %></span> </p>
+                <p id="leftComments_btn" class="btn">Lietotāja komentāri: <span class="quantity"><%= leftComments.length %></span> </p>
+                <p id="recievedComments_btn" class="btn">Saņemtie komentāri: <span class="quantity"><%= recievedComments.length %></span> </p>
+            </div>
+            <!-- Stats content-->
+            <!-- users blogs-->
+            <div id="blogs_details" class="details_container" hidden>
+                <h3>Visi blogi</h3>
+                <div class="all_blogs">
+                <% for(let blog of usersBlogs) {%>
+                
+                    <a href="/blogs/<%= blog._id %>">
+                        <div class="blog">
+                            <p class="title"><%= blog.title %></p> 
+                            <div>
+                                <p><span class="category"><%= blog.categorie.toUpperCase() %></span></p>
+                                <p><%= blog.date %></p>
+                            </div> 
+                        </div>
+                    </a>
+                
+               <% } %> 
+            </div>
+            </div>
+
+
+            <!-- left comments by user -->
+            <div id="leftComments_details" class="details_container" hidden>
+                <h3>Lietotāja komentāri</h3>
+                <div class="comment_container">
+                <% for(let comment of leftComments) {%>
+                <a href="/blogs/<%= comment.blog.id %> ">
+                    <div class="comment">
+                        <p class="title"><em>blogā</em> <%= comment.blog.title %> <span class="date"><%= comment.date %> </span></p>
+                        <p class="text"><%= comment.text %> </p>
+                    </div>
+                </a>
+               <% } %> 
+            </div>
+            </div>
+
+
+
+            <!-- recieved comments  -->
+            <div id="recievedComments_details" class="details_container" hidden>
+                <h3>Saņemtie komentāri</h3>
+                <div class="comment_container">
+                <% for(let comment of recievedComments) {%>
+                <a href="/blogs/<%= comment.blog.id %> ">
+                    <div class="comment">
+                        <p class="title"><em>blogā</em> <%= comment.blog.title %> <span class="date"><%= comment.date %> </span></p>
+                        <p class="text"><%= comment.text %> </p>
+                        <p class="author">komentēja <strong><%= comment.author %></strong> </p>
+                    </div>
+                </a>
+               <% } %> 
+            </div>
+            </div>
+        </div>
+
+        <div class="profile_data">
+            <div class="profile_details">Labot profilu</div>
+            <div>
+                <p>Username: </p>
+                <p>Email: </p>
+                <p>Password: </p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    /* ************************************
+    Show/hide stats for blogs and comments
+    ***************************************/
+    (function getStats(){
+        const blogs_details = document.getElementById("blogs_details");
+        const leftComments_details = document.getElementById("leftComments_details");
+        const recievedComments_details = document.getElementById("recievedComments_details");
+        const btns = document.querySelectorAll(".btn");
+        btns.forEach((btn)=> {
+            btn.addEventListener("click", (e)=> {
+                let attr = e.target.getAttribute("id");
+                console.log(e.target)
+                if(attr == "blogs_btn") {
+                    !blogs_details.hidden ? blogs_details.hidden = true : blogs_details.hidden = false;
+                    !blogs_details.hidden ? e.target.classList.add("active") : e.target.classList.remove("active");
+                }
+                if(attr == "leftComments_btn") {
+                    !leftComments_details.hidden ? leftComments_details.hidden = true : leftComments_details.hidden = false;
+                    !leftComments_details.hidden ? e.target.classList.add("active") : e.target.classList.remove("active");
+                }
+                if(attr == "recievedComments_btn") {
+                    !recievedComments_details.hidden ? recievedComments_details.hidden = true : recievedComments_details.hidden = false;
+                    !recievedComments_details.hidden ? e.target.classList.add("active") : e.target.classList.remove("active");
+                }
+            })
+        })
+    }())
+    
+</script>

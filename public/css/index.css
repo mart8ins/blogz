@@ -8,3 +8,23 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(290deg, rgba(249, 249, 249, 1) 22%, rgba(190, 184, 184, 1) 96%);
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e4cbcb;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
