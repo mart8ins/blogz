@@ -11,7 +11,7 @@ const Blog = require("../models/blog");
 // route for logged user to manage his profile, and see other data
 router.route("/profile")
 .get(async (req, res)=> {
-    const {userId,username} = req.session;
+    const {username, email} = req.session;
     // get all blogs
     const blogs = await Blog.find().populate("author").populate("comments");
     // to store users blogs
@@ -40,7 +40,8 @@ router.route("/profile")
             })
         }
     })
-    res.render("user/profile", {username, usersBlogs, recievedComments, leftComments})
+
+    res.render("user/profile", {username,email, usersBlogs, recievedComments, leftComments})
 })
 
 // route for other logged users to see user who left comment or blog, stats

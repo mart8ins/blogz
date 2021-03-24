@@ -15,6 +15,7 @@ router.route("/login")
     // using User models statics method to validate user
     const validUser = await User.validUser(username, password);
     if(validUser) {
+        req.session.email = validUser.email;
         req.session.userId = validUser._id;
         req.session.username = validUser.username;
         req.flash("success", `Sveicināts lietotāj, ${username}!`);
@@ -46,6 +47,7 @@ router.route("/register")
         const regSuccess = await User.findOne({username: username});
         req.session.userId = regSuccess._id;
         req.session.username = regSuccess.username;
+        req.session.email = regSuccess.email;
         res.redirect("/")
     } else {
         req.flash("error", "Username is already taken! Choose different!")
@@ -58,6 +60,7 @@ router.route("/logout")
 .post((req,res)=> {
     req.session.userId = null;
     req.session.username = null;
+    req.session.email = null;
     res.redirect("/")
 })
 
