@@ -44,6 +44,9 @@
 .container .feed_container .page_feed .left_side_blogs {
     width: 60%;
     margin: 0 auto;
+    max-height: 120vh;
+    overflow: auto;
+    padding: 10px;
 }
 
 .container .feed_container .page_feed .blog_container {
@@ -116,12 +119,14 @@
 **************************************** */
 .container .feed_container .page_feed .right_side_activity {
     width: 35%;
-    margin: auto;
+    margin: 0px auto;
 }
 
 .container .feed_container .page_feed .right_side_activity .comments_container {
     border-radius: 5px;
     padding: 10px;
+    max-height: 120vh;
+    overflow: auto;
 }
 
 .container .feed_container .page_feed .right_side_activity .comments_container .last_comments_title {

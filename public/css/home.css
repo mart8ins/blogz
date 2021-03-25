@@ -98,6 +98,9 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 .main_blog_feed_left {
     width: 60%;
     padding: 20px;
+    margin: 20px 0px;
+    max-height: 120vh;
+    overflow: auto;
 }
 
 .main_blog_feed_left .blog_container {

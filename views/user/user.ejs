@@ -1,28 +1,27 @@
 <% layout('layout/boilerplate') -%>
-<link rel="stylesheet" href="/css/profile.css">
+<link rel="stylesheet" href="/css/user.css">
 
 <div class="container">
-    <div class="top_container">
-        <p class="greet_user">Sveicināti, <%= username %> ! <span class="face_icon"><i class="far fa-smile-wink"></i></span></p>
-    </div>
 
     <div class="middle_container">
 
         <div class="account_data">
             <div class="blogzz_stats">
-                Lietotāja statistika
+                 <p>Lietotāja statistika</p> 
+                 <p class="username"><%= username %></p>
             </div>
             <!-- Stats buttons-->
             <div class="stats_btn_container">
-                <p id="blogs_btn" class="btn">Izveidotie blogi: <span class="quantity"><%= usersBlogs.length %></span> </p>
-                <p id="leftComments_btn" class="btn">Lietotāja komentāri: <span class="quantity"><%= leftComments.length %></span> </p>
-                <p id="recievedComments_btn" class="btn">Saņemtie komentāri: <span class="quantity"><%= recievedComments.length %></span> </p>
+                <p id="blogs_btn" class="btn">Visi lietotāja blogi: <span class="quantity"><%= usersBlogs.length %></span> </p>
+                <p id="leftComments_btn" class="btn">Komentējis <span class="quantity"><%= leftComments.length %></span> </p>
+                <p id="recievedComments_btn" class="btn">Saņēmis komentārus: <span class="quantity"><%= recievedComments.length %></span> </p>
             </div>
             <!-- Stats content-->
             <!-- users blogs-->
             <div id="blogs_details" class="details_container" hidden>
                 <h3>Visi blogi</h3>
                 <div class="all_blogs">
+                    <% if(usersBlogs.length) {%> 
                 <% for(let blog of usersBlogs) {%>
                 
                     <a href="/blogs/<%= blog._id %>">
@@ -34,8 +33,10 @@
                             </div> 
                         </div>
                     </a>
-                
                <% } %> 
+               <% } else {%>
+                Lietotājam nav izveidotu blogu.
+                <% } %>  
             </div>
             </div>
 
@@ -44,6 +45,7 @@
             <div id="leftComments_details" class="details_container" hidden>
                 <h3>Lietotāja komentāri</h3>
                 <div class="comment_container">
+                    <% if(leftComments.length) {%> 
                 <% for(let comment of leftComments) {%>
                 <a href="/blogs/<%= comment.blog.id %> ">
                     <div class="comment">
@@ -52,6 +54,9 @@
                     </div>
                 </a>
                <% } %> 
+               <% } else {%>
+                Lietotājs vēl nav komentējis nevienu blogu.
+                <% } %>  
             </div>
             </div>
 
@@ -61,6 +66,7 @@
             <div id="recievedComments_details" class="details_container" hidden>
                 <h3>Saņemtie komentāri</h3>
                 <div class="comment_container">
+                    <% if(recievedComments.length) {%> 
                 <% for(let comment of recievedComments) {%>
                 <a href="/blogs/<%= comment.blog.id %> ">
                     <div class="comment">
@@ -70,17 +76,14 @@
                     </div>
                 </a>
                <% } %> 
+               <% } else {%> 
+                    Nav vēl saņemti komentāri
+                <% }%> 
             </div>
             </div>
         </div>
 
-        <div class="profile_data">
-            <div class="profile_details">Profila dati</div>
-            <div>
-                <p><strong>Lietotājvārds:</strong> <%= username %> </p>
-                <p><strong>E-pasts:</strong> <%= email %> </p>
-            </div>
-        </div>
+     
 
 
     </div>

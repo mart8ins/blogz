@@ -1,0 +1,11 @@
+.footer {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}

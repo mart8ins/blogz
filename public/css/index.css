@@ -6,7 +6,9 @@ font-family: 'Syne Mono', monospace; // // font for brandings */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(290deg, rgba(249, 249, 249, 1) 22%, rgba(190, 184, 184, 1) 96%);
+    background: linear-gradient(290deg, rgba(249, 249, 249, 0.7) 22%, rgba(190, 184, 184, 0.6) 96%);
+    min-height: 100vh;
+    position: relative;
 }
 
 /* width */
