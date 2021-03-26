@@ -31,7 +31,14 @@
                     <p class="top_blog_text"><%= text %>...</p>
                 </div>
             </a>
-            <% } %>  
+            <% } %>
+            <% if(!top5blogs.length) {%> 
+                <div class="top_rated_blog">
+                    <div class="category_rating_container">
+                        <p>Top 5 vērtētākie blogi</p>
+                    </div>
+                </div>
+                <% } %>   
     </div>
 
 
@@ -50,7 +57,7 @@
                 <div class="blog_container">
                     <div class="blog_title">
                         <a href="blogs/<%= blog.id %>"><h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1></a> 
-                        <p><%= blog.categorie %></p>
+                        <p class="blog_categorie_title"><%= blog.categorie %></p>
                     </div>
                     <div class="blog_text">
                         <%= blog.text.substring(0,250) %>... 

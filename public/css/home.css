@@ -137,6 +137,8 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(28, 28, 32, 0.7455357142857143) 90%, rgba(255, 0, 9, 0.6951155462184874) 94%, rgba(34, 33, 30, 1) 98%);
     color: white;
     font-weight: bold;
+    display: flex;
+    align-self: flex-start;
 }
 
 /* TEXT */

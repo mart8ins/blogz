@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const catchAsync = require("../errors/catchAsync");
 
 // route guard for logged user
 const {loggedUserRouteGuard} = require("../middleware/routingGuard");
@@ -11,7 +12,7 @@ const User = require("../models/user");
 
 // route for logged user to manage his profile, and see other data
 router.route("/profile")
-.get(async (req, res)=> {
+.get(catchAsync(async (req, res)=> {
     const {username, email} = req.session;
     // get all blogs
     const blogs = await Blog.find().populate("author").populate("comments");
@@ -43,18 +44,15 @@ router.route("/profile")
     })
 
     res.render("user/profile", {username,email, usersBlogs, recievedComments, leftComments})
-})
+}))
 
 
 // route for other logged users to see user who left comment or blog, stats
 router.route("/:username/profile")
-.get(async (req, res)=> {
+.get(catchAsync(async (req, res)=> {
     const {username} = req.params;
     // get all blogs
     const blogs = await Blog.find().populate("author").populate("comments");
-    // get user data
-    const user = await User.findOne({username: username});
-    
     
     // to store users blogs
     const usersBlogs = [];
@@ -83,6 +81,6 @@ router.route("/:username/profile")
         }
     })
     res.render("user/user", {username, usersBlogs, recievedComments, leftComments})
-})
+}))
 
 module.exports = router;

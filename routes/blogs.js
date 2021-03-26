@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const catchAsync = require("../errors/catchAsync");
+const AppError = require("../errors/AppError");
 
 /* *********************
         MIDDLEWARE
@@ -13,8 +15,6 @@ const {loggedUserRouteGuard} = require("../middleware/routingGuard");
 const Blog = require("../models/blog");
 const User = require("../models/user");
 const Comment = require("../models/comment");
-
-
 
 
 
@@ -36,7 +36,7 @@ router.route("/new")
 .get(loggedUserRouteGuard,(req, res)=> {
     res.render("blog/new", {categories})
 })
-.post(loggedUserRouteGuard, async (req, res)=> {
+.post(loggedUserRouteGuard, catchAsync(async (req, res)=> {
     const {title, categorie, blog} = req.body;
     const loggedUser = await User.findById(req.session.userId);
     if(loggedUser) {
@@ -52,19 +52,20 @@ router.route("/new")
         return res.redirect("/")
     } 
     res.redirect("/auth/login")
-})
+}))
 
 
 /* *********************
         BLOG DETAILS
 ************************ */
 router.route("/:blogId")
-.get(async (req, res)=> {
+.get(catchAsync(async (req, res, next)=> {
     const {blogId} = req.params;
     const loggedUserUsername = req.session.username;
 
     // get data for blog
     const blog = await Blog.findById(blogId).populate("author").populate("comments");
+    if(!blog) throw new AppError(404, "Meklētais blogs nav atrasts.");
 
     /********* DISPLAY RATING ********/
     let isRated = 0;
@@ -86,11 +87,9 @@ router.route("/:blogId")
 
     /********* DISPLAY COMMENTS ********/
     const comments = blog.comments;
-
-
     res.render("blog/blog", {categorieTitle, blog, isRated, avarage, loggedUserUsername, comments})
-})
-.post(async(req, res)=> {
+}))
+.post(catchAsync(async(req, res)=> {
     const {blogId} = req.params; // blog id
     const {rate, comment} = req.body; // rate or comment from current logged user to current blog
     const loggedUser = await User.findById(req.session.userId); // logged user who rates current blog
@@ -130,19 +129,17 @@ router.route("/:blogId")
         currentBlog.comments.push(newComment);
         await currentBlog.save();
     }
-
     res.redirect("/blogs/" + blogId);
-})
+}))
 
 
 /* *********************
         ALL BLOGS IN CATEGORY
 ************************ */
 router.route("/")
-.get(async (req, res)=> {
+.get(catchAsync(async (req, res)=> {
     // get all blogs for current categorie
     const allBlogsForCategory = await Blog.find({categorie:categorieTitle}).populate("author").populate("comments");
-    
     // get all comments for current categorie
     const allCommentsForCategorie = await Comment.find({"blog.categorie": categorieTitle});
 
@@ -167,7 +164,7 @@ router.route("/")
         }
     })
     res.render("blog/blogs", {categorieTitle, categorieBlogs, allCommentsForCategorie})
-})
+}))
 .post((req, res)=> {
     categorieTitle = req.body.categorieTitle;
     res.redirect("/blogs");

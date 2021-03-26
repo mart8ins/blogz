@@ -1,5 +1,7 @@
 const express = require("express");
+const AppError = require("../errors/AppError");
 const router = express.Router();
+const catchAsync = require("../errors/catchAsync");
 
 // MODELS 
 const Blog = require("../models/blog");
@@ -7,9 +9,10 @@ const Comment = require("../models/comment");
 
 
 router.route("/")
-    .get(async (req, res) => {
+    .get(catchAsync(async (req, res) => {
         // all blogs in db
         const blogs = await Blog.find({}).populate("author").populate("comments");
+        if(!blogs) throw AppError(404, "Blogi nav atrasti");
         // all comments in db
         const commentsAll = await Comment.find({});
         const latest5comments = commentsAll.reverse().slice(0, 5);
@@ -52,10 +55,6 @@ router.route("/")
             top5blogs,
             latest5comments
         });
-    })
-
-
-
-
+    }))
 
 module.exports = router;

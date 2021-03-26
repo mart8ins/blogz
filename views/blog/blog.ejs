@@ -118,7 +118,7 @@
             <form action="/blogs/<%= blog._id %>" method="POST">
             <label for="comment" class="label_comment">Pievienot komentāru</label>
             <input type="text" name="username" value="<%= loggedUserUsername %>" disabled>
-            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <textarea name="comment" id="comment" cols="30" rows="10" required></textarea>
             <button>Komentēt</button>
             </form>
             <% } else {%>

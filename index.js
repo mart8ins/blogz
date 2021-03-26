@@ -4,9 +4,12 @@ const express = require("express");
 const engineMate = require("ejs-mate");
 const app = express();
 const flash = require('connect-flash');
+const mongoSanitize = require('express-mongo-sanitize');
+const AppError = require("./errors/AppError");
 
 const session = require('express-session'); 
 const MongoStore = require('connect-mongo');
+
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -14,8 +17,9 @@ app.set("view engine", "ejs"); // to render files without extension
 app.engine("ejs", engineMate); // use ejs-locals for all ejs templates
 app.set("views",__dirname + "/views");
 
-/* flash messages */
-// app.use(require('flash')());
+// sanitizes user-supplied data to prevent MongoDB Operator Injection.
+app.use(mongoSanitize());
+
 
 
 /* *********
@@ -68,9 +72,24 @@ app.use("/blogs", blogRoutes);
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
 
+/* *********
+ IF PAGE NOT FOUND PAGE 
+************* */
+app.use((req, res) => {
+    throw new AppError(404, "Lapa, ko meklējat neeksistē!");
+})
 
-app.get("*", (req, res)=> {
-    res.send("UPS, 404")
+/* *********
+ERROR MIDLLEWARE 
+************* */
+app.use((err, req, res, next)=> {
+    if(err.name == "CastError") throw new AppError(500, "Bad request!")
+    next(err);
+})
+
+app.use((err, req, res, next) => {
+    let { message = "Something went wrong!", status = 500 } = err;
+    res.render("error", { message, status });
 })
 
 app.listen(process.env.SERVER_PORT, ()=> {
