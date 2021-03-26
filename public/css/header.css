@@ -108,3 +108,58 @@ header nav .auth_nav a:hover button {
     margin-right: 30px;
     font-size: 1.3rem;
 }
+
+@media screen and (max-width: 320px) {
+
+    header {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header a .title {
+        font-size: 1.4rem;
+        padding-left: 10px;
+        color: white;
+        color: black;
+    }
+
+    header nav .auth_nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav .auth_nav a button {
+        border: none;
+        margin: 5px;
+        padding: 5px 10px;
+    }
+
+    header nav .auth_nav a:hover button {
+        cursor: pointer;
+        background-color: whitesmoke;
+    }
+
+    .login_success_greet {
+        display: none;
+    }
+
+    .content_nav {
+        width: 100%;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content_nav .blog_categories_form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content_nav .blog_categories_form button {
+        font-size: 1.1rem;
+        border-bottom: 1px solid white;
+    }
+
+}
