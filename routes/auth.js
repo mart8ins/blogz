@@ -37,6 +37,9 @@ router.route("/register")
     const isUsernameTaken = await User.findOne({username: username});
     const isEmailTaken = await User.findOne({email: email});
 
+    const regex = /^[a-zA-Z0-9]*$/.test(username);
+    if(!regex) return req.flash("error", "Speciālās rakstīmes lietotājvārdā nav atļautas") && res.redirect("/auth/register");
+
     if(isUsernameTaken) return req.flash("error", "Username is already taken! Choose different!") && res.redirect("/auth/register");
     if(isEmailTaken) return req.flash("error", "Email is already registred!") && res.redirect("/auth/register");
     

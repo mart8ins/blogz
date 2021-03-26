@@ -7,10 +7,11 @@
         <% if(error.length) {%>
             <p class="error_msg"><%= error %></p>
             <% } %>
+            <p id="notAllowedChar" class="error_msg" hidden>Speciālās rakstīmes lietotājvārdā nav atļautas</p> 
         <form action="/auth/register" method="post">
             <div>
                 <label for="username">Lietotājvārds</label>
-                <input type="text" name="register[username]" id="username" required minlength="4">
+                <input type="text" name="register[username]" id="username" required minlength="4" oninput="validTitle(this.value)">
             </div>
 
            <div>
@@ -30,3 +31,10 @@
         </form>
     </div>
 </div>
+<script>
+    let specCharWarning = document.getElementById("notAllowedChar");
+    function validTitle(input){
+        const regex = /^[a-zA-Z0-9]*$/.test(input);
+        !regex ? specCharWarning.hidden = false : specCharWarning.hidden = true;
+    }
+</script>
