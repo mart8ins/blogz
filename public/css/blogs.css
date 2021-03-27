@@ -176,3 +176,63 @@
 .container .feed_container .page_feed .right_side_activity .comments_container .comment_feed .comment .comment_author em {
     float: right;
 }
+
+
+
+
+@media screen and (max-width: 320px) {
+    .container .feed_container .page_feed {
+        flex-direction: column;
+        margin-top: 5px;
+    }
+
+    .container .feed_container .page_feed .left_side_blogs {
+        width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        padding: 0px;
+    }
+
+    .container .feed_container .page_feed .blog_container {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .container .feed_container .page_feed .blog_container .blog_title h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .container .feed_container .page_feed .blog_container .blog_title a {
+        text-decoration: underline;
+    }
+
+    /* TEXT */
+    .container .feed_container .page_feed .blog_container .blog_text {
+        padding: 3px;
+        text-indent: 10px;
+        font-size: 0.7rem;
+    }
+
+    /*  BOTTOM OF BLOG, RATING/AUTHOR.... */
+    .container .feed_container .page_feed .blog_container .blog_author_date_rating {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .feed_container .page_feed .blog_container .blog_author_date_rating .author_date p:first-child {
+        font-size: 0.8rem;
+    }
+
+    .container .feed_container .page_feed .blog_container .blog_author_date_rating .author_date p:last-child {
+        font-size: 0.6rem;
+    }
+
+    .author_icon {
+        margin-right: 5px;
+    }
+
+    .right_side_activity {
+        display: none;
+    }
+}

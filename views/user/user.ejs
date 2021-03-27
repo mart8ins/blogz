@@ -27,7 +27,7 @@
                     <a href="/blogs/<%= blog._id %>">
                         <div class="blog">
                             <p class="title"><%= blog.title %></p> 
-                            <div>
+                            <div id="small_screen_categorie_date">
                                 <p><span class="category"><%= blog.categorie.toUpperCase() %></span></p>
                                 <p><%= blog.date %></p>
                             </div> 
@@ -49,7 +49,7 @@
                 <% for(let comment of leftComments) {%>
                 <a href="/blogs/<%= comment.blog.id %> ">
                     <div class="comment">
-                        <p class="title"><em>blogā</em> <%= comment.blog.title %> <span class="date"><%= comment.date %> </span></p>
+                        <p class="title" id="small_screen_categorie_date"><em>blogā</em> <%= comment.blog.title %> <span class="date"><%= comment.date %> </span></p>
                         <p class="text"><%= comment.text %> </p>
                     </div>
                 </a>

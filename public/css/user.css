@@ -149,3 +149,137 @@
 .details_container .comment_container .comment .text {
     padding: 5px;
 }
+
+
+
+
+
+
+@media screen and (max-width: 320px) {
+    .top_container {
+        margin-bottom: 10px;
+    }
+
+    .greet_user {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .greet_user .face_icon {
+        font-size: 2.1rem;
+    }
+
+    .blogzz_stats,
+    .profile_details {
+        padding: 10px;
+        letter-spacing: 1.2px;
+        font-size: 0.7rem;
+    }
+
+    .middle_container .account_data .stats_btn_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .quantity {
+        padding: 3px 7px;
+    }
+
+    .middle_container .account_data .stats_btn_container p {
+        width: 100%;
+        margin: 10px;
+        display: inline-block;
+        padding: 10px;
+        font-size: 0.7rem;
+        letter-spacing: 1.1px;
+    }
+
+    .middle_container .account_data .stats_btn_container .active {
+        transform: scale(1.04);
+    }
+
+    .details_container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .details_container .all_blogs {
+        max-height: 800px;
+        overflow: auto;
+    }
+
+    .details_container .all_blogs .blog {
+        padding: 0px;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0px 7px 15px black;
+    }
+
+
+    .details_container .all_blogs .blog .title {
+        font-size: 0.7rem;
+        padding: 10px;
+        background-color: whitesmoke;
+        color: black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-decoration: underline;
+    }
+
+    .details_container .all_blogs .blog #small_screen_categorie_date {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: inherit;
+        text-align: center;
+    }
+
+    .details_container .all_blogs .blog #small_screen_categorie_date p:first-child {
+        font-size: 0.6rem;
+        margin-bottom: 10px;
+    }
+
+    .details_container .all_blogs .blog #small_screen_categorie_date p:last-child {
+        font-size: 0.5rem;
+    }
+
+
+    .details_container .comment_container {
+        padding: 0px;
+        margin: 0 5px;
+    }
+
+    .details_container .comment_container .comment {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 2px 4px black;
+        margin: 20px;
+    }
+
+    .details_container .comment_container .comment .title {
+        font-size: 0.7rem;
+        margin: 0;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        height: 70px;
+        text-align: center;
+    }
+
+    .details_container .comment_container .comment .title .date {
+        margin: 10px 10px 0 0;
+    }
+
+    .details_container .comment_container .comment .text {
+        margin: 0;
+        padding: 10px;
+        font-size: 0.7rem;
+        text-decoration: none;
+    }
+
+    .details_container .comment_container .comment .author {
+        font-size: 0.5rem;
+    }
+}
