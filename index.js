@@ -3,6 +3,7 @@ if(process.env.NODE_ENV !== "production") {
 }
 
 
+
 const express = require("express");
 const engineMate = require("ejs-mate");
 const app = express();
@@ -25,12 +26,15 @@ app.set("views",__dirname + "/views");
 app.use(mongoSanitize());
 
 
+// db url 
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/blogzz";
+
 
 /* *********
 MONGO datu bāze
 ************* */
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_ADRESS, {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -41,13 +45,15 @@ db.once("open", () => {
     console.log("Connection to database successful!");
 });
 
+const secret = process.env.SECRET || 'supersecrets';
+
 /* SESSION  */
 const sessionOptions = {
     name: "blag",
-    secret: 'supersecrets',
+    secret,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_ADRESS }),
+    store: MongoStore.create({ secret, mongoUrl: dbUrl, touchAfter: 24 * 3600 }),
     cookie: { 
         httpOnly: true,
         expires: Date.now() + 1000 * 60 *60 *24*7,
