@@ -1,4 +1,7 @@
-require('dotenv').config();
+if(process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 
 const express = require("express");
 const engineMate = require("ejs-mate");
@@ -6,6 +9,7 @@ const app = express();
 const flash = require('connect-flash');
 const mongoSanitize = require('express-mongo-sanitize');
 const AppError = require("./errors/AppError");
+const helmet = require("helmet");
 
 const session = require('express-session'); 
 const MongoStore = require('connect-mongo');
@@ -39,13 +43,19 @@ db.once("open", () => {
 
 /* SESSION  */
 const sessionOptions = {
-    secret: 'supersecret',
+    name: "blag",
+    secret: 'supersecrets',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_ADRESS })
-    // cookie: { secure: true }
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_ADRESS }),
+    cookie: { 
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 *60 *24*7,
+        maxAge: 1000 * 60 * 60* 24 *7
+     }
   }
-app.use(session(sessionOptions), flash())
+app.use(session(sessionOptions), flash());
+app.use(helmet());
 
 
 app.use((req, res, next)=> {
