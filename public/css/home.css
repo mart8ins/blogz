@@ -10,7 +10,7 @@ ALL CONENT CONTAINER
 MAX 5 TOP RATED BLOGS
 ********************* */
 .top_rated_blogs_container {
-    background-color: rgba(78, 75, 75, 0.123);
+    background-color: rgba(0, 0, 0, 0.6);
     margin-top: 5px;
     border-top: 3px solid rgba(78, 75, 75, 0.377);
     border-bottom: 3px solid rgba(78, 75, 75, 0.377);
@@ -20,7 +20,6 @@ MAX 5 TOP RATED BLOGS
     border-top-right-radius: 5px;
     padding: 15px;
     display: flex;
-    /* justify-content: space-around; */
 }
 
 /* each top blog / link to */
@@ -101,15 +100,54 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     margin: 20px 0px;
     max-height: 120vh;
     overflow: auto;
+    position: relative;
 }
 
 .main_blog_feed_left .blog_container {
-    background-color: whitesmoke;
     box-shadow: 1px 2px 3px black;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 10px;
+    position: relative;
 }
+
+/* background images depending on category*/
+.bg_img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.sports {
+    background-image: url("/images/sports.jpg");
+}
+
+.auto {
+    background-image: url("/images/auto.jpg");
+}
+
+.lifestyle {
+    background-image: url("/images/lifestyle.jpg");
+}
+
+.politics {
+    background-image: url("/images/politics.jpg");
+}
+
+.technology {
+    background-image: url("/images/technology.jpg");
+}
+
+
+
+
 
 /* TITLE */
 .main_blog_feed_left .blog_container .blog_title {
@@ -143,7 +181,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 
 /* TEXT */
 .main_blog_feed_left .blog_container .blog_text {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
     text-indent: 25px;
     text-align: justify;
@@ -184,7 +222,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
 }
 
 .page_activity_feed_right .comment_feed {
-    background-color: rgba(87, 20, 20, 0.384);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -199,7 +237,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     color: white;
     font-weight: bold;
     padding: 5px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     background-color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     border-radius: 5px;
@@ -229,7 +267,14 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     float: right;
 }
 
-@media screen and (max-width: 320px) {
+.comment_q {
+    background-color: black;
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: white;
+}
+
+@media screen and (max-width: 680px) {
 
     .top_rated_blogs_container {
         padding: 5px;
@@ -275,7 +320,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     }
 
     .main_blog_feed_left .blog_container {
-        background-color: whitesmoke;
+        /* background-color: whitesmoke; */
         box-shadow: 1px 5px 5px black;
         border-radius: 5px;
         padding: 9px;

@@ -26,6 +26,8 @@
     </div>
     
     <div class="blog_container">
+        <div class="bg_img <%= blog.categorie %>">
+        </div>
         <div class="blog_title">
             <h1><%= blog.title %></h1>
         </div>
@@ -41,10 +43,7 @@
             </div>
             
                 <div class="rate_blog">
-                    <% if(userId) {%>
-                    <% if(!isRated) {%>
-                    <p>Novērtē šo ierakstu</p>
-                    <% } %> 
+                    <% if(userId) {%> 
                      <form action="/blogs/<%= blog._id %>" method="POST">
                         <div class="rate">
                             <% if(isRated) {%> 
@@ -96,7 +95,7 @@
                             <% } %>  
                         </div>
                         <% if(!isRated) {%> 
-                        <button>Iesniegt</button>
+                        <button>Novērtēt</button>
                         <% } else {%>
                             <button id="isRated" disabled>Novērtēts</button>
                             <% } %>  

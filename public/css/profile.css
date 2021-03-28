@@ -165,7 +165,7 @@
     box-shadow: 0 2px 8px black;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 680px) {
     .top_container {
         margin-bottom: 10px;
     }

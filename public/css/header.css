@@ -6,22 +6,21 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 5px 5px rgba(87, 20, 20, 0.5);
-    background: linear-gradient(290deg, rgba(255, 255, 255, 1) 40%, rgba(55, 55, 55, 1) 100%);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 header a {
     display: inline-block;
     text-decoration: none;
-    color: black;
+    text-transform: uppercase;
 }
 
 header a .title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-family: 'Syne Mono', monospace;
     padding-left: 20px;
     color: white;
-    text-shadow: 1px 1px 5px;
-
+    text-shadow: 1px 3px 7px;
 }
 
 header nav {
@@ -34,42 +33,38 @@ header nav .user_nav {
 }
 
 header nav .user_nav a button {
-    border: none;
+    border: 3px solid black;
     margin: 5px;
     padding: 5px 10px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     border-radius: 10px;
-    font-size: 0.8rem;
-    box-shadow: 1px 1px 1px black;
+    font-size: 1rem;
 }
 
 header nav .user_nav a:hover button {
     cursor: pointer;
-    background-color: whitesmoke;
+    border: 3px solid white;
 }
-
-
-
-
-
 
 header nav .auth_nav {
     display: flex;
 }
 
 header nav .auth_nav a button {
-    border: none;
+    border: 3px solid black;
     margin: 5px;
     padding: 5px 10px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     border-radius: 10px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     box-shadow: 1px 1px 1px black;
 }
 
 header nav .auth_nav a:hover button {
     cursor: pointer;
-    background-color: whitesmoke;
+    border: 3px solid white;
 }
 
 
@@ -107,9 +102,10 @@ header nav .auth_nav a:hover button {
 .login_success_greet {
     margin-right: 30px;
     font-size: 1.3rem;
+    color: white;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 680px) {
 
     header {
         width: 100vw;

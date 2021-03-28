@@ -42,20 +42,57 @@
 }
 
 .blog_container {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     /* border-left: 2px solid grey; */
     border-right: 2px solid grey;
     box-shadow: 0 2px 5px grey;
     border-radius: 15px;
     padding: 50px;
     margin-top: 10px;
+    position: relative;
 }
+
+/* background images depending on category*/
+.bg_img {
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.sports {
+    background-image: url("/images/blog/sports.jpg");
+}
+
+.auto {
+    background-image: url("/images/blog/auto.jpg");
+}
+
+.lifestyle {
+    background-image: url("/images/blog/lifestyle.jpg");
+}
+
+.politics {
+    background-image: url("/images/blog/politics.jpg");
+}
+
+.technology {
+    background-image: url("/images/blog/technology.jpg");
+}
+
 
 .blog_container .blog_title h1 {
     margin: 0;
     font-size: 1.6rem;
     letter-spacing: 1.2px;
-    background-color: rgba(78, 75, 75, 0.377);
+    background-color: rgba(78, 75, 75, 0.562);
     padding: 20px;
     border-left: 10px solid black;
     border-top-right-radius: 50px;
@@ -64,7 +101,7 @@
 }
 
 .blog_container .blog_text p {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(255, 255, 255, 0.705);
     padding: 20px;
     letter-spacing: 1px;
     line-height: 1.7rem;
@@ -81,6 +118,11 @@
     border-radius: 10px;
 }
 
+.blog_container .author_rate_blog .rate_title {
+    font-weight: bold;
+    color: black;
+}
+
 .blog_container .author_rate_blog .blog_author {
     display: flex;
     flex-direction: column;
@@ -92,7 +134,7 @@
 .blog_container .author_rate_blog .blog_author .author_icon,
 .clock_icon {
     margin-right: 10px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .blog_container .author_rate_blog .blog_author p {
@@ -123,7 +165,8 @@
     white-space: nowrap;
     cursor: pointer;
     font-size: 50px;
-    color: #ccc;
+    color: rgb(255, 255, 255);
+
 }
 
 .rate:not(:checked)>label:before {
@@ -157,15 +200,15 @@
     margin: 30px;
     border: none;
     border-radius: 15px;
-    text-transform: uppercase;
     padding: 10px;
     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
 }
 
 .rate_blog form button:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* rate submit button if blog is already rated from user*/
@@ -314,7 +357,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 680px) {
 
     .top_container {
         text-align: center;

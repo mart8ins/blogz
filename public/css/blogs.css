@@ -54,7 +54,42 @@
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 10px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    position: relative;
+}
+
+/* background images depending on category*/
+.bg_img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.sports {
+    background-image: url("/images/sports.jpg");
+}
+
+.auto {
+    background-image: url("/images/auto.jpg");
+}
+
+.lifestyle {
+    background-image: url("/images/lifestyle.jpg");
+}
+
+.politics {
+    background-image: url("/images/politics.jpg");
+}
+
+.technology {
+    background-image: url("/images/technology.jpg");
 }
 
 /* TITLE */
@@ -88,7 +123,7 @@
 
 /* TEXT */
 .container .feed_container .page_feed .blog_container .blog_text {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
     text-indent: 25px;
     text-align: justify;
@@ -99,6 +134,13 @@
 .container .feed_container .page_feed .blog_container .blog_author_date_rating {
     display: flex;
     justify-content: space-between;
+}
+
+.comment_q {
+    background-color: black;
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: white;
 }
 
 .container .feed_container .page_feed .blog_container .blog_author_date_rating .author_date p:last-child {
@@ -135,7 +177,7 @@
 }
 
 .container .feed_container .page_feed .right_side_activity .comments_container .comment_feed {
-    background-color: rgba(87, 20, 20, 0.384);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -180,7 +222,8 @@
 
 
 
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 680px) {
     .container .feed_container .page_feed {
         flex-direction: column;
         margin-top: 5px;

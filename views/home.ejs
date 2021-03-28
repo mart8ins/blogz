@@ -55,6 +55,9 @@
 
                 <% for(let blog of latestBlogs) {%> 
                 <div class="blog_container">
+                    <% let small = blog.categorie.toLowerCase() %> 
+                    <div class="bg_img <%= small %>">
+                    </div>
                     <div class="blog_title">
                         <a href="blogs/<%= blog.id %>"><h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1></a> 
                         <p class="blog_categorie_title"><%= blog.categorie %></p>
@@ -69,7 +72,7 @@
                     </div>
                     <div class="commentsQ_rating">
                         <% if(blog.commentsLength) {%>
-                            <p>Komentāri: <span><%= blog.commentsLength %></span></p>
+                            <p>Komentāri: <span class="comment_q"><%= blog.commentsLength %></span></p>
                             <% }%> 
                             <p class="rating">
                                 <span>Novērtējums</span>
@@ -115,4 +118,3 @@
         
     </div>
 </div>
-
