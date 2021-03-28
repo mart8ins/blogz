@@ -62,6 +62,15 @@ const sessionOptions = {
   }
 app.use(session(sessionOptions), flash());
 app.use(helmet());
+// Sets all of the defaults, but overrides script-src
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "script-src": ["'self'", "http://* 'unsafe-inline'"]
+      },
+    })
+  );
 
 
 app.use((req, res, next)=> {
