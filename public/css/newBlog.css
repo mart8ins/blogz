@@ -44,7 +44,7 @@
     border: none;
     outline: none;
     padding: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .form_container form .left .title input:focus,
@@ -103,9 +103,7 @@
     outline-color: rgba(0, 0, 0, 0.08);
 }
 
-
-
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1260px) {
 
     .form_container {
         padding: 10px;
@@ -119,7 +117,74 @@
 
 
     .form_container form .left {
+        width: 40%;
+    }
+
+    .form_container form .left .title,
+    .categorie {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.13);
+        padding: 10px;
+        border-radius: 20px;
+        width: 65%;
+    }
+
+    .form_container form .left .title input,
+    .categorie select {
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 1.1rem;
+    }
+
+
+    .form_container form .left .button {
+        margin-top: 10px;
+        padding: 5px;
+        position: relative;
+        top: 510px;
+    }
+
+    .form_container form .left .button button {
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.63);
+    }
+
+
+    /* bloga textarea */
+    .form_container form .right {
         width: 100%;
+        /* height: 75vh; */
+        height: 500px;
+        margin: -60px auto 70px;
+    }
+
+    .form_container form .right textarea {
+        height: 85%;
+        width: 90%;
+        font-size: 1.1rem;
+        padding: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 660px) {
+
+    .form_container {
+        padding: 10px;
+        position: relative;
+    }
+
+    .form_container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .form_container form .left {
+        width: 70%;
     }
 
     .form_container form .left .title,
@@ -137,7 +202,7 @@
     .categorie select {
         border-radius: 10px;
         padding: 5px;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
 

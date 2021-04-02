@@ -98,7 +98,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     width: 60%;
     padding: 20px;
     margin: 20px 0px;
-    max-height: 120vh;
+    max-height: 165vh;
     overflow: auto;
     position: relative;
 }
@@ -274,12 +274,195 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     color: white;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1260px) {
+
+    .top_rated_blogs_container {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+    }
+
+    /* each top blog / link to */
+    .top_rated_blogs_container a {
+        width: 100%;
+    }
+
+    .top_rated_blogs_container .top_rated_blog_category {
+        font-size: 0.5rem;
+        font-weight: bold;
+    }
+
+    .top_rated_blogs_container .top_rated_blog {
+        padding: 5px;
+        margin: 3px;
+    }
+
+    .top_rated_blogs_container .top_rated_blog .rating {
+        padding-right: 5px;
+        font-size: 0.5rem;
+    }
+
+    .top_rated_blogs_container .top_rated_blog h5 {
+        font-size: 0.5rem;
+    }
+
+    .top_rated_blogs_container .top_rated_blog .top_blog_text {
+        font-size: 0.4rem;
+        background-color: white;
+    }
+
+
+    /* blog */
+    .main_blog_feed_left {
+        width: 65%;
+        padding: 5px;
+        margin: 5px 0px;
+        max-height: 150vh;
+        overflow: auto;
+    }
+
+    .main_blog_feed_left .blog_container {
+        box-shadow: 1px 5px 5px black;
+        border-radius: 5px;
+        padding: 9px;
+        margin-bottom: 10px;
+    }
+
+    /* TITLE */
+    .main_blog_feed_left .blog_container .blog_title {
+        flex-direction: column;
+    }
+
+    .main_blog_feed_left .blog_container .blog_title a {
+        text-decoration: underline;
+    }
+
+    .main_blog_feed_left .blog_container .blog_title h1 {
+        color: rgba(0, 0, 0, 1);
+        font-size: 1.2rem;
+    }
+
+    .main_blog_feed_left .blog_container .blog_title p {
+        padding: 5px;
+        font-size: 0.6rem;
+        margin: 0;
+        box-shadow: 2px 2px 2px black;
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(28, 28, 32, 0.7455357142857143) 90%, rgba(255, 0, 9, 0.6951155462184874) 94%, rgba(34, 33, 30, 1) 98%);
+        color: white;
+        font-weight: bold;
+    }
+
+    /* TEXT */
+    .main_blog_feed_left .blog_container .blog_text {
+        padding: 6px;
+        font-size: 0.6rem;
+        text-indent: 10px;
+    }
+
+    /*  BOTTOM OF BLOG, RATING/AUTHOR.... */
+    .main_blog_feed_left .blog_container .blog_author_date_rating {
+        flex-direction: column;
+    }
+
+    .main_blog_feed_left .blog_container .blog_author_date_rating .author_date p:first-child {
+        font-size: 0.8rem;
+    }
+
+    .main_blog_feed_left .blog_container .blog_author_date_rating .author_date p:last-child {
+        font-size: 0.5rem;
+    }
+
+    .main_blog_feed_left .blog_container .blog_author_date_rating .author_icon {
+        font-size: 0.8rem;
+        margin-right: 5px;
+    }
+
+    .main_blog_feed_left .blog_container .commentsQ_rating {
+        font-size: 0.6rem;
+    }
+
+    /* comments */
+    .page_activity_feed_right {
+        width: 30%;
+        margin: 5px auto;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .page_activity_feed_right .last_comments_title {
+        color: black;
+        font-size: 0.9rem;
+    }
+
+    .page_activity_feed_right .comment_feed {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .page_activity_feed_right .comment_feed .blog_of_comment {
+        margin: 5px;
+        color: white;
+    }
+
+    .page_activity_feed_right .comment_feed .blog_of_comment a {
+        display: inline-block;
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        font-size: 0.7rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .page_activity_feed_right .comment_feed .comment {
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .page_activity_feed_right .comment_feed .comment .comment_text {
+        text-align: justify;
+        margin-bottom: 10px;
+        font-size: 0.6rem;
+    }
+
+    .page_activity_feed_right .comment_feed .comment .comment_author {
+        font-size: 0.5rem;
+        margin: 0;
+    }
+
+    .page_activity_feed_right .comment_feed .comment .comment_author strong {
+        font-size: 0.5rem;
+    }
+
+    .page_activity_feed_right .comment_feed .comment .comment_author em {
+        float: right;
+        font-size: 0.6rem;
+    }
+
+    .comment_q {
+        background-color: black;
+        border-radius: 10px;
+        padding: 2px 7px;
+        color: white;
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width: 767px) {
 
     .top_rated_blogs_container {
         padding: 5px;
         display: flex;
         flex-direction: column;
+        display: none;
     }
 
     /* each top blog / link to */
@@ -315,8 +498,8 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
         width: 100%;
         padding: 5px;
         margin: 5px 0px;
-        max-height: 100%;
-        overflow: hidden;
+        max-height: 120vh;
+        overflow: auto;
     }
 
     .main_blog_feed_left .blog_container {

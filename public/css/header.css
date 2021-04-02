@@ -105,31 +105,101 @@ header nav .auth_nav a:hover button {
     color: white;
 }
 
-@media screen and (max-width: 680px) {
+
+@media screen and (max-width: 960px) {
+    .login_success_greet {
+        font-size: 0.7rem;
+    }
+
+    .content_nav .blog_categories_form button {
+        box-shadow: 0 3px 3px black;
+        font-size: 0.7rem;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+    header {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 0.7rem;
+    }
+
+    header a .title {
+        font-size: 1.9rem;
+        padding-left: 0px;
+        margin-right: 80px;
+        color: white;
+    }
+
+    header nav .auth_nav a button {
+        border: none;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.486);
+        font-size: 0.8rem;
+    }
+
+    header nav .user_nav a button {
+        font-size: 0.8rem;
+    }
+
+    .login_success_greet {
+        display: none;
+    }
+
+    .content_nav .blog_categories_form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content_nav .blog_categories_form button {
+        box-shadow: 0 3px 3px black;
+        font-size: 0.7rem;
+    }
+
+}
+
+@media screen and (max-width: 426px) {
 
     header {
         width: 100vw;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 0.7rem;
     }
 
     header a .title {
         font-size: 1.4rem;
-        padding-left: 10px;
+        padding-left: 0px;
+        margin-right: 20px;
         color: white;
-        color: black;
+    }
+
+    header nav {
+        justify-content: center;
     }
 
     header nav .auth_nav {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
     header nav .auth_nav a button {
         border: none;
-        margin: 5px;
+        margin-right: 10px;
         padding: 5px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.486);
+        font-size: 0.7rem;
+        border-radius: 3px;
     }
 
     header nav .auth_nav a:hover button {
@@ -137,13 +207,27 @@ header nav .auth_nav a:hover button {
         background-color: whitesmoke;
     }
 
+    header nav .user_nav {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    header nav .user_nav a button {
+        margin-right: 5px;
+        font-size: 0.8rem;
+        border: 1px solid rgba(0, 0, 0, 0.486);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
     .login_success_greet {
         display: none;
     }
 
     .content_nav {
-        width: 100%;
-        padding: 1px;
+        margin-top: 5px;
+        width: 60%;
         display: flex;
         flex-direction: column;
     }
@@ -154,8 +238,9 @@ header nav .auth_nav a:hover button {
     }
 
     .content_nav .blog_categories_form button {
-        font-size: 1.1rem;
-        border-bottom: 1px solid white;
+        margin-top: 5px;
+        box-shadow: 0 3px 3px black;
+        font-size: 1rem;
     }
 
 }
