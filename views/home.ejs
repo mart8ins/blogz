@@ -7,31 +7,36 @@
                     TOP RATED BLOG POSTS  (MAX 5)
     ***************************************************** -->
     <div class="top_rated_blogs_container">
+        <p>Top 5 vērtētākie blogi</p>
+        <div class="top_rated">
         <% for(let blog of top5blogs) {%>
             <% let categorie = blog.categorie.toUpperCase(); %> 
-            <a href="/blogs/<%= blog.id %>">
-                <div class="top_rated_blog">
-                    <div class="category_rating_container">
-                        <p class="top_rated_blog_category"><%= categorie %> </p>
-                        <p class="rating">
-                            <% let ratingMax = 5 %>
-                            <% let rating = blog.rating %> 
-                            <% for(let i = 1; i <= ratingMax; i++) {%> 
-                                <% if(i <= rating) {%>
-                                    <span class="fa fa-star checked"></span>
-                                    <% } else {%>  
-                                    <span class="fa fa-star"></span>
-                                   <% } %> 
-                                <% } %> 
-                        </p>
+            
+                <a href="/blogs/<%= blog.id %>">
+                    <div class="top_rated_blog">
+                        <div class="category_rating_container">
+                            <p class="top_rated_blog_category"><%= categorie %> </p>
+                            <p class="rating">
+                                <% let ratingMax = 5 %>
+                                <% let rating = blog.rating %> 
+                                <% for(let i = 1; i <= ratingMax; i++) {%> 
+                                    <% if(i <= rating) {%>
+                                        <span class="fa fa-star checked"></span>
+                                        <% } else {%>  
+                                        <span class="fa fa-star"></span>
+                                       <% } %> 
+                                    <% } %> 
+                            </p>
+                        </div>
+                        <% let title = blog.title.slice(0,24) %> 
+                        <h5><%= title %>...</h5>
+                        <% let text = blog.text.slice(0,100) %> 
+                        <p class="top_blog_text"><%= text %>...</p>
                     </div>
-                    <% let title = blog.title.slice(0,24) %> 
-                    <h5><%= title %>...</h5>
-                    <% let text = blog.text.slice(0,100) %> 
-                    <p class="top_blog_text"><%= text %>...</p>
-                </div>
-            </a>
+                </a>
+            
             <% } %>
+        </div>
             <% if(!top5blogs.length) {%> 
                 <div class="top_rated_blog">
                     <div class="category_rating_container">
@@ -54,41 +59,43 @@
         <div class="main_blog_feed_left">
 
                 <% for(let blog of latestBlogs) {%> 
-                <div class="blog_container">
-                    <% let small = blog.categorie.toLowerCase() %> 
-                    <div class="bg_img <%= small %>">
+                <a href="blogs/<%= blog.id %>">
+                    <div class="blog_container">
+                        <% let small = blog.categorie.toLowerCase() %> 
+                        <div class="bg_img <%= small %>">
+                        </div>
+                        <div class="blog_title">
+                            <h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1> 
+                            <p class="blog_categorie_title"><%= blog.categorie %></p>
+                        </div>
+                        <div class="blog_text">
+                            <%= blog.text.substring(0,250) %>... 
+                        </div>
+                        <div class="blog_author_date_rating">
+                        <div class="author_date">
+                            <p><span class="author_icon"><i class="fa fa-user-edit"></i></span> <%= blog.author %> </p>
+                            <p><%= blog.date %> </p>
+                        </div>
+                        <div class="commentsQ_rating">
+                            <% if(blog.commentsLength) {%>
+                                <p>Komentāri: <span class="comment_q"><%= blog.commentsLength %></span></p>
+                                <% }%> 
+                                <p class="rating">
+                                    <span>Novērtējums</span>
+                                    <% let ratingMax = 5 %>
+                                    <% let rating = blog.rating %> 
+                                    <% for(let i = 1; i <= ratingMax; i++) {%> 
+                                        <% if(i <= rating) {%>
+                                            <span class="fa fa-star checked"></span>
+                                            <% } else {%>  
+                                            <span class="fa fa-star"></span>
+                                        <% } %> 
+                                        <% } %> 
+                                </p>
+                        </div>
+                        </div>
                     </div>
-                    <div class="blog_title">
-                        <a href="blogs/<%= blog.id %>"><h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1></a> 
-                        <p class="blog_categorie_title"><%= blog.categorie %></p>
-                    </div>
-                    <div class="blog_text">
-                        <%= blog.text.substring(0,250) %>... 
-                    </div>
-                    <div class="blog_author_date_rating">
-                    <div class="author_date">
-                        <p><span class="author_icon"><i class="fa fa-user-edit"></i></span> <%= blog.author %> </p>
-                        <p><%= blog.date %> </p>
-                    </div>
-                    <div class="commentsQ_rating">
-                        <% if(blog.commentsLength) {%>
-                            <p>Komentāri: <span class="comment_q"><%= blog.commentsLength %></span></p>
-                            <% }%> 
-                            <p class="rating">
-                                <span>Novērtējums</span>
-                                <% let ratingMax = 5 %>
-                                <% let rating = blog.rating %> 
-                                <% for(let i = 1; i <= ratingMax; i++) {%> 
-                                    <% if(i <= rating) {%>
-                                        <span class="fa fa-star checked"></span>
-                                        <% } else {%>  
-                                        <span class="fa fa-star"></span>
-                                    <% } %> 
-                                    <% } %> 
-                            </p>
-                    </div>
-                    </div>
-                </div>
+                </a>
                 <% } %> 
         </div>
 
@@ -104,14 +111,16 @@
             <% for(let comment of latest5comments) {%>
                 <div class="comment_feed">
                     <div class="blog_of_comment">
-                        <p>Komentēts iekš</p> <a href="/blogs/<%= comment.blog.id %>"><%= comment.blog.title %> </a>
+                        <p>Komentēts iekš <span class="comment_of"><%= comment.blog.title %></span> </p>
                     </div>
-                    <div class="comment">
-                        <div class="comment_text">
-                            <%= comment.text.substring(0,180) %>... 
+                    <a href="/blogs/<%= comment.blog.id %>">
+                        <div class="comment">
+                            <div class="comment_text">
+                                <%= comment.text.substring(0,180) %>... 
+                            </div>
+                            <p class="comment_author"><span class="author_icon"><i class="fa fa-user-edit"></i></span> <strong><%= comment.author %></strong><em><%= comment.date %></em> </p>
                         </div>
-                        <p class="comment_author"><span class="author_icon"><i class="fa fa-user-edit"></i></span> <strong><%= comment.author %></strong><em><%= comment.date %></em> </p>
-                    </div>
+                    </a>
                 </div>
                 <% } %>  
         </div>

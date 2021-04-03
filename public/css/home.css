@@ -20,6 +20,20 @@ MAX 5 TOP RATED BLOGS
     border-top-right-radius: 5px;
     padding: 15px;
     display: flex;
+    flex-direction: column;
+}
+
+.top_rated_blogs_container>p {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.top_rated_blogs_container .top_rated {
+    display: flex;
 }
 
 /* each top blog / link to */
@@ -36,7 +50,7 @@ MAX 5 TOP RATED BLOGS
     box-shadow: 0px 5px 8px white;
 }
 
-.top_rated_blogs_container .top_rated_blog {
+.top_rated_blogs_container .top_rated .top_rated_blog {
     padding: 5px;
     margin: 5px;
     background: linear-gradient(114deg, rgba(255, 255, 255, 1) 0%, rgba(175, 174, 174, 1) 92%);
@@ -47,7 +61,7 @@ MAX 5 TOP RATED BLOGS
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: white; */
+    background-color: white;
     color: black;
     padding: 5px;
 }
@@ -70,14 +84,14 @@ MAX 5 TOP RATED BLOGS
 .top_rated_blogs_container .top_rated_blog h5 {
     text-align: left;
     margin: 0px 0px 0px;
-    font-size: 1rem;
+    font-size: 0.6rem;
     padding: 5px;
     color: black;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
 .top_rated_blogs_container .top_rated_blog .top_blog_text {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     text-align: justify;
     padding: 5px;
     margin: 0;
@@ -103,11 +117,21 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     position: relative;
 }
 
+.main_blog_feed_left a {
+    text-decoration: none;
+    color: black;
+}
+
+.main_blog_feed_left a:hover .blog_container {
+    transform: scale(1.03);
+    filter: brightness(1.3);
+}
+
 .main_blog_feed_left .blog_container {
     box-shadow: 1px 2px 3px black;
     border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -116,7 +140,7 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
     left: 0;
     right: 0;
@@ -155,17 +179,9 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     justify-content: space-between;
 }
 
-.main_blog_feed_left .blog_container .blog_title a {
-    text-decoration: none;
-}
-
 .main_blog_feed_left .blog_container .blog_title h1 {
     color: rgba(0, 0, 0, 1);
     font-size: 2rem;
-}
-
-.main_blog_feed_left .blog_container .blog_title h1:hover {
-    color: rgba(0, 0, 0, 0.4);
 }
 
 .main_blog_feed_left .blog_container .blog_title p {
@@ -227,20 +243,31 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     margin-bottom: 10px;
 }
 
+.page_activity_feed_right .comment_feed a {
+    text-decoration: none;
+    color: black;
+}
+
+.page_activity_feed_right .comment_feed a:hover .comment {
+    background-color: rgb(226, 226, 247);
+}
+
 .page_activity_feed_right .comment_feed .blog_of_comment {
     margin: 10px;
     color: white;
 }
 
-.page_activity_feed_right .comment_feed .blog_of_comment a {
-    display: inline-block;
-    color: white;
+.page_activity_feed_right .comment_feed .blog_of_comment p {
+    margin: 0;
+}
+
+.page_activity_feed_right .comment_feed .blog_of_comment .comment_of {
     font-weight: bold;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    text-align: center;
     padding: 5px;
-    font-size: 1.1rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-decoration: none;
-    border-radius: 5px;
 }
 
 .page_activity_feed_right .comment_feed .comment {
@@ -279,8 +306,22 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     .top_rated_blogs_container {
         padding: 5px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-content: flex-start;
+    }
+
+    .top_rated_blogs_container>p {
+        margin: 0;
+        color: white;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 4px;
+        border-radius: 5px;
+        font-size: 0.6rem;
+    }
+
+    .top_rated_blogs_container .top_rated {
+        display: flex;
     }
 
     /* each top blog / link to */
@@ -288,26 +329,21 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
         width: 100%;
     }
 
-    .top_rated_blogs_container .top_rated_blog_category {
-        font-size: 0.5rem;
-        font-weight: bold;
-    }
-
-    .top_rated_blogs_container .top_rated_blog {
+    .top_rated_blogs_container .top_rated .top_rated_blog {
         padding: 5px;
         margin: 3px;
     }
 
-    .top_rated_blogs_container .top_rated_blog .rating {
+    .top_rated_blogs_container .top_rated .top_rated_blog .rating {
         padding-right: 5px;
         font-size: 0.5rem;
     }
 
-    .top_rated_blogs_container .top_rated_blog h5 {
+    .top_rated_blogs_container .top_rated .top_rated_blog h5 {
         font-size: 0.5rem;
     }
 
-    .top_rated_blogs_container .top_rated_blog .top_blog_text {
+    .top_rated_blogs_container .top_rated .top_rated_blog .top_blog_text {
         font-size: 0.4rem;
         background-color: white;
     }
@@ -332,10 +368,6 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     /* TITLE */
     .main_blog_feed_left .blog_container .blog_title {
         flex-direction: column;
-    }
-
-    .main_blog_feed_left .blog_container .blog_title a {
-        text-decoration: underline;
     }
 
     .main_blog_feed_left .blog_container .blog_title h1 {
@@ -406,15 +438,18 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
         color: white;
     }
 
-    .page_activity_feed_right .comment_feed .blog_of_comment a {
-        display: inline-block;
-        color: white;
-        font-weight: bold;
-        padding: 5px;
+    .page_activity_feed_right .comment_feed .blog_of_comment p {
+        margin: 0;
         font-size: 0.7rem;
-        background-color: rgba(0, 0, 0, 0.6);
-        text-decoration: none;
-        border-radius: 5px;
+    }
+
+    .page_activity_feed_right .comment_feed .blog_of_comment .comment_of {
+        font-weight: bold;
+        font-size: 0.7rem;
+        color: rgba(0, 0, 0, 0.6);
+        display: block;
+        text-align: center;
+        padding: 5px;
     }
 
     .page_activity_feed_right .comment_feed .comment {
@@ -470,20 +505,20 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
         width: 100%;
     }
 
-    .top_rated_blogs_container .top_rated_blog {
+    .top_rated_blogs_container .top_rated .top_rated_blog {
         padding: 5px;
         margin: 1px;
     }
 
-    .top_rated_blogs_container .top_rated_blog .rating {
+    .top_rated_blogs_container .top_rated .top_rated_blog .rating {
         padding-right: 5px;
     }
 
-    .top_rated_blogs_container .top_rated_blog h5 {
+    .top_rated_blogs_container .top_rated .top_rated_blog h5 {
         font-size: 0.8rem;
     }
 
-    .top_rated_blogs_container .top_rated_blog .top_blog_text {
+    .top_rated_blogs_container .top_rated .top_rated_blog .top_blog_text {
         font-size: 0.5rem;
         background-color: white;
     }
@@ -513,10 +548,6 @@ MAIN PAGE FEED, BLOGS AND ACTIVITY
     /* TITLE */
     .main_blog_feed_left .blog_container .blog_title {
         flex-direction: column;
-    }
-
-    .main_blog_feed_left .blog_container .blog_title a {
-        text-decoration: underline;
     }
 
     .main_blog_feed_left .blog_container .blog_title h1 {

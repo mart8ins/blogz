@@ -19,11 +19,12 @@
                 </div>
                 <% } %> 
                 <% for(let blog of categorieBlogs.reverse()) {%>
+                   <a href="/blogs/<%= blog.id %>">
                     <div class="blog_container">
                         <div class="bg_img <%= categorieTitle %>">
                         </div>
                         <div class="blog_title">
-                            <a href="/blogs/<%= blog.id %>"><h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1></a>
+                            <h1><span><i class="fa fa-blog"></i></span> <%= blog.title %></h1>
                         </div>
                         <div class="blog_text">
                             
@@ -52,6 +53,7 @@
                         </div>
                         </div>
                     </div>
+                   </a>
                     <% } %> 
             </div>
 
@@ -73,14 +75,16 @@
                <% for(let comment of allCommentsForCategorie.reverse()) {%> 
                     <div class="comment_feed">
                         <div class="blog_of_comment">
-                            <p>Komentēts iekš</p> <a href="/blogs/<%= comment.blog.id %>"><%= comment.blog.title %></a>
+                            <p>Komentēts iekš <span class="comment_of"><%= comment.blog.title %></span></p>
                         </div>
+                       <a href="/blogs/<%= comment.blog.id %>">
                         <div class="comment">
                             <div class="comment_text">
                                 <%= comment.text.substring(0,180) %>...
                             </div>
                             <p class="comment_author"><span class="author_icon"><i class="fa fa-user-edit"></i></span> <strong><%= comment.author %></strong> <em><%= comment.date %></em></p>
                         </div>
+                       </a>
                     </div>
                    <% } %> 
             </div>
