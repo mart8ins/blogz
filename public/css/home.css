@@ -39,6 +39,7 @@ MAX 5 TOP RATED BLOGS
 /* each top blog / link to */
 .top_rated_blogs_container .top_rated a {
     text-decoration: none;
+    color: black;
     width: 18%;
     margin: auto;
     box-shadow: 0px 5px 5px white;
