@@ -37,7 +37,7 @@ MAX 5 TOP RATED BLOGS
 }
 
 /* each top blog / link to */
-.top_rated_blogs_container a {
+.top_rated_blogs_container .top_rated a {
     text-decoration: none;
     width: 18%;
     margin: auto;
@@ -91,6 +91,7 @@ MAX 5 TOP RATED BLOGS
 }
 
 .top_rated_blogs_container .top_rated_blog .top_blog_text {
+    /* text-decoration: none; */
     font-size: 0.5rem;
     text-align: justify;
     padding: 5px;
