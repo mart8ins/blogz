@@ -4,23 +4,21 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/blogzz", {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
-})
+    useUnifiedTopology: true,
+});
 // db datubāzes reference, un error handlings + info par sekmīgu piekonektēšanos
 // palaižot aplikāciju caur node - izies cauri šim connection un parādīs attiecīgu msg
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
-})
-
+});
 
 const Blog = require("../models/blog"); // modelis
-const {blogs} = require("./blogs"); // blog data
-
+const { blogs } = require("./blogs"); // blog data
 
 async function addBlog() {
-    await Blog.deleteMany({});
+    // await Blog.deleteMany({});
     // for(let i = 0; i < blogs.length; i++) {
     //     let blog = blogs[i];
     //     // console.log(blog)
@@ -38,45 +36,10 @@ async function addBlog() {
 }
 
 // async funkcija, tapēc atgriež promisu, par cik šī ir tikai seeds datu darbība, connection varam noslēgt
-addBlog()
-.then(() => {
-    console.log("Database closed for seed operations")
+addBlog().then(() => {
+    console.log("Database closed for seed operations");
     mongoose.connection.close();
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 // module.exports.blogs =  [
 //     {
